@@ -13,7 +13,7 @@ let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
 
 let { addItem, searchItem, editItem, removeItem } = require('./scapegoat')
 
-
+let haskey;
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
 })
@@ -42,23 +42,29 @@ app.get('/fetch-song', (req, res) => {
   res.render('song-fetch.ejs')
 })
 
-app.post('/getsong',async(req, res) => {
+app.post('/getsong', async (req, res) => {
   const GetSongName = req.body.songGETname
   console.log(GetSongName);
-  
- console.log(searchItem(GetSongName));
 
-// ---------------------------
+  console.log(searchItem(GetSongName));
 
-let hash_key=searchItem(GetSongName);
+  // ---------------------------
 
-const DATA_COLLECTED= await downloadfromS3(hash_key);
-console.log(DATA_COLLECTED)
-DATA_COLLECTED.pipe(res)
+  hash_key = searchItem(GetSongName);
+  res.redirect('/playsong');
+  // const DATA_COLLECTED= await downloadfromS3(hash_key);
+  // console.log(DATA_COLLECTED)
+  // DATA_COLLECTED.pipe(res)
 
 }
 )
 
+
+app.get('/playsong',async (req, res) => {
+  const DATA_COLLECTED = await downloadfromS3(hash_key);
+  console.log(DATA_COLLECTED)
+  DATA_COLLECTED.pipe(res)
+})
 
 app.listen(PORT || process.env.PORT, () => {
   console.log(`App live @ :http://localhost:${PORT} `)
