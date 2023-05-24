@@ -16,14 +16,14 @@ app.get('/',(req,res)=>{
     res.render('addPage.ejs');
 })
 
-// app.post('/upload', upload.single('entity')/*Multer Middleware*/ , async (req, res) => {
-//   const file = req.file
-//   console.log(file)
-// //   res.send({imagePath: `/images/${result.Key}`})
-//   const result =await uploadToS3(file)
-//   console.log(result);
-//   res.end(`<a href='/upload/${result.key}'>Click here to fetch data from AWS S3</a>`);
-// })
+app.post('/addsong', upload.single('song')/*Multer Middleware*/ , async (req, res) => {
+  const file = req.file
+  console.log(file)
+//   res.send({imagePath: `/images/${result.Key}`})
+  const result =await uploadToS3(file)
+  console.log(result);
+  res.end("Posted Successfully")
+})
 
 
 app.listen(PORT||process.env.PORT,()=>{

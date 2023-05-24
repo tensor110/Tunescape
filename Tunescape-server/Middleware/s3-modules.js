@@ -2,14 +2,16 @@ const S3 =require('aws-sdk/clients/s3');//IMPORTING THE AWS-SDK , WHERE WE CAN U
 
 require('dotenv').config();//TO PROTECT KEYS
 
+
 const fs=require('fs');
 
 
-const bucketName=process.env.AWS_BUCKET_NAME;
-const region =process.env.AWS_BUCKET_REGION;
-const accessKeyId=process.env.AWS_ACCESS_KEY;
-const secretAccessKey=process.env.AWS_SECRET_KEY;
+const bucketName='song-bucket-soubhik';
+const region ='ap-south-1';
+const accessKeyId='AKIA2QMHNITHV2B3K3O3';
+const secretAccessKey='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';
 
+console.log("bucket name = "+bucketName)
 const s3= new S3({
     region,
     accessKeyId,
