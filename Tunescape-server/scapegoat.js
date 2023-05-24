@@ -22,7 +22,7 @@ function searchItem(id){
 }
 
 //Takes item in the form of an object as input, writes it in the json file
-
+ 
 function addItem(item){
     data.push(item);
     writeFile(data);
