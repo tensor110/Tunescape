@@ -71,3 +71,9 @@ function writeFile(data){
     })
 }
 
+module.exports= {
+    addItem,
+    searchItem,
+    editItem,
+    removeItem
+}
