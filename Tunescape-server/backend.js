@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
 let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
 
-let { addItem, searchItem, editItem, removeItem } = require('./scapegoat')
+let { addItem, searchItem, editItem, removeItem } = require('./Middleware/scapegoat')
 
 let haskey;
 app.get('/', (req, res) => {
