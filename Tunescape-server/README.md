@@ -1,1 +1,1 @@
-!["BI"](./Server-Frontend/public/Backend%20structure.svg)
+!["BI"](./Server-Frontend/public/sys_design.svg)

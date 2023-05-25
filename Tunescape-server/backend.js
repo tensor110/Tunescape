@@ -13,7 +13,7 @@ let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
 
 let { addItem, searchItem, editItem, removeItem } = require('./scapegoat')
 
-let haskey;
+let hash_key;
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
 })
