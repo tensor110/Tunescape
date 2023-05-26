@@ -6,10 +6,10 @@ require('dotenv').config();//TO PROTECT KEYS
 const fs=require('fs');
 
 
-const bucketName='song-bucket-soubhik';
+const bucketName='tunescape';
 const region ='ap-south-1';
-const accessKeyId='AKIA2QMHNITHV2B3K3O3';
-const secretAccessKey='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';
+const accessKeyId='AKIA2QMHNITHVVJK4MTS';
+const secretAccessKey='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';
 
 console.log("bucket name = "+bucketName)
 const s3= new S3({

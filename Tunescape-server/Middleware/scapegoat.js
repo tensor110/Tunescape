@@ -10,7 +10,7 @@
 const fs= require('fs');
 const path= require('path');
 
-p= path.join(__dirname,'../database/tunescapedb.json');
+p= path.join(__dirname,'../Database/tunescapedb.json');
 
 
 const data = JSON.parse(fs.readFileSync(p,'utf-8'));

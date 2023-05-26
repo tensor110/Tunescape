@@ -28,7 +28,7 @@ app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res
   console.log(result);
   addItem({
     "song_name": songname,
-    "hash_key": result.key
+    "hash_key" : result.key
   })
   // console.log("$KEY : " + result.key);
   res.redirect('/SongPosted');
