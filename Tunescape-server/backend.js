@@ -10,7 +10,6 @@ const upload = multer({ dest: 'uploads/' })
 app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
 let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
-
 let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
 let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
 let hash_key;
@@ -21,10 +20,10 @@ app.get('/', (req, res) => {
 app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res) => {
   const file = req.file
   const songname = req.body.song_name
-  // console.log(songname)
-  // console.log(file)
-  //   res.send({imagePath: `/images/${result.Key}`})
+  console.log(songname)
+  console.log(file)
   const result = await uploadToS3(file)
+  // res.send({imagePath: `/images/${result.Key}`})
   console.log(result);
   addItem({
     "song_name": songname,
@@ -52,10 +51,6 @@ app.post('/getsong', async (req, res) => {
 
   hash_key = searchItem(GetSongName);
   res.redirect('/playsong');
-  // const DATA_COLLECTED= await downloadfromS3(hash_key);
-  // console.log(DATA_COLLECTED)
-  // DATA_COLLECTED.pipe(res)
-
 }
 )
 
@@ -65,12 +60,6 @@ app.get('/playsong', async (req, res) => {
   console.log(DATA_COLLECTED)
   DATA_COLLECTED.pipe(res)
 })
-
-app.listen(PORT || process.env.PORT, () => {
-  console.log(`App live @ :http://localhost:${PORT} `)
-})
-
-
 
 app.get('/authen', (req, res) => {
   console.log("User hit homepage")
@@ -107,3 +96,8 @@ app.post('/adduser', (req, res) => {
   checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone);
   res.end("Added to DB");
 })
+
+app.listen(PORT || process.env.PORT, () => {
+  console.log(`App live @ :http://localhost:${PORT} `)
+})
+

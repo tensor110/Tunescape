@@ -10,7 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 
-p = path.join(__dirname, '../Database/userdb.json');
+let p = path.join(__dirname, '../Database/userdb.json');
 
 
 const data = JSON.parse(fs.readFileSync(p, 'utf-8'));
