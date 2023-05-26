@@ -11,8 +11,8 @@ app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
 let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
 
-let { addItem, searchItem, editItem, removeItem } = require('./Middleware/scapegoat')
-
+let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
+let {userAuthenticator}=require('./Middleware/userManager');
 let hash_key;
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
@@ -72,5 +72,29 @@ app.listen(PORT || process.env.PORT, () => {
 
 
 
+app.get('/authen',(req,res)=>{
+  console.log("User hit homepage")
+  res.render("home.ejs");
+})
 
+app.post('/l_or_s',(req,res)=>{
+  console.log(req.body.login)
+  console.log(req.body.signup)
+  req.body.login?res.redirect('/login'):res.redirect('/signup');
+})
 
+app.get('/login',(req,res)=>{
+  res.render("login.ejs");
+})
+
+app.get("/signup",(req,res)=>{
+  res.render('signup.ejs');
+})
+
+app.post('/check',(req,res)=>{
+    const username=req.body.username;
+    const password=req.body.password;
+    console.log(username);
+    console.log(password);
+  userAuthenticator(username,password)?res.end("User"):res.end("Not An User");
+  })
