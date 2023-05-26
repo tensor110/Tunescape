@@ -12,7 +12,7 @@ app.set("views", "Server-Frontend")
 let { uploadToS3, downloadfromS3 } = require('./Middleware/s3-modules');
 
 let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
-let {userAuthenticator}=require('./Middleware/userManager');
+let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
 let hash_key;
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
@@ -28,7 +28,7 @@ app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res
   console.log(result);
   addItem({
     "song_name": songname,
-    "hash_key" : result.key
+    "hash_key": result.key
   })
   // console.log("$KEY : " + result.key);
   res.redirect('/SongPosted');
@@ -60,7 +60,7 @@ app.post('/getsong', async (req, res) => {
 )
 
 
-app.get('/playsong',async (req, res) => {
+app.get('/playsong', async (req, res) => {
   const DATA_COLLECTED = await downloadfromS3(hash_key);
   console.log(DATA_COLLECTED)
   DATA_COLLECTED.pipe(res)
@@ -72,29 +72,38 @@ app.listen(PORT || process.env.PORT, () => {
 
 
 
-app.get('/authen',(req,res)=>{
+app.get('/authen', (req, res) => {
   console.log("User hit homepage")
   res.render("home.ejs");
 })
 
-app.post('/l_or_s',(req,res)=>{
+app.post('/l_or_s', (req, res) => {
   console.log(req.body.login)
   console.log(req.body.signup)
-  req.body.login?res.redirect('/login'):res.redirect('/signup');
+  req.body.login ? res.redirect('/login') : res.redirect('/signup');
 })
 
-app.get('/login',(req,res)=>{
+app.get('/login', (req, res) => {
   res.render("login.ejs");
 })
 
-app.get("/signup",(req,res)=>{
+app.get("/signup", (req, res) => {
   res.render('signup.ejs');
 })
 
-app.post('/check',(req,res)=>{
-    const username=req.body.username;
-    const password=req.body.password;
-    console.log(username);
-    console.log(password);
-  userAuthenticator(username,password)?res.end("User"):res.end("Not An User");
-  })
+app.post('/check', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log(username);
+  console.log(password);
+  userAuthenticator(username, password) ? res.end("User") : res.end("Not An User");
+})
+
+app.post('/adduser', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.username;
+  const telephone = req.body.password;
+  checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone);
+  res.end("Added to DB");
+})
