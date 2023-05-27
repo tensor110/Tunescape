@@ -1,0 +1,16 @@
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5rem;
+    background-color: rgb(245, 245, 220);
+}
+.footer-details,.footer-develop{
+    display: flex;
+    flex-direction: column;
+    color: rgb(97, 97, 97);
+}
+.github img{
+    height: 4rem;
+    width: 4rem;
+}

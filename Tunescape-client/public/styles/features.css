@@ -1,0 +1,10 @@
+.features{
+    background-color: beige;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-features{
+    font-size: 5rem;
+}
