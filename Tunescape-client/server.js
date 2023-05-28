@@ -6,8 +6,12 @@ app.set("views","views");
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  count=90
-    res.render('home',{xyz:count});
+  
+    res.render('home');
+  });
+app.get('/stream', (req, res) => {
+  
+    res.render('stream');
   });
 
 app.use((req, res, next) => {

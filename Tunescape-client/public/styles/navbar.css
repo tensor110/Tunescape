@@ -1,26 +1,43 @@
 .navbar{
     display: flex;
+    position: fixed;
     justify-content: space-evenly;
     align-items: center;
-    background: rgb(159, 169, 100);
-    height: 5rem;
-    width: 100%;
+    /* background: var(--primary-color); */
+    height: 4rem;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1rem;
+    border-radius: 10rem;
+    -webkit-user-select: none;
+    
 }
 .logo{
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* color: var(--secondary-color); */
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: var(--font-logo);
+    font-weight: 300;
     font-size: 1.6rem;
+    color: white;
 
 }
 #search{
-    border-radius: 25rem;
+    border-radius: 50rem;
+    width: 15rem;
     height: 2rem;
-    padding-left: 1.65rem;
+    padding-left: 2.7rem;
     border: none;
-    background-image: url('/assets/search.png');
+    background-image: url('/assets/icons/search-white.png');
     background-repeat: no-repeat;
-    background-position: 5px center;
+    background-position: 1rem center;
     background-size: 1rem 1rem;
+    background-color: transparent;
+    color: white;
+}
+input::placeholder,
+textarea::placeholder {
+    font-family: var(--font-logo);
+  color: #ffffff;
 }
 #stream, #dashboard, #signup{
     width: 7rem;
@@ -28,7 +45,13 @@
     padding: 0.4rem 0.5rem;
     border-radius: 25rem;
     cursor: pointer;
+    border: none;
+    font-family: var(--font-logo);
+    background: none;
+    /* background-color: transparent; */
+    color: white;
+    font-size: 1rem;
 }
 #stream:hover, #dashboard:hover, #signup:hover{
-    background: #c8c8c8;
+    /* background: var(--hover-color); */
 }

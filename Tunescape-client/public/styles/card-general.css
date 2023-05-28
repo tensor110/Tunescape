@@ -1,0 +1,26 @@
+.card-general{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 2px solid red; */
+    border-radius: 1rem;
+    margin: 0.5rem 0rem;
+    padding: 1rem 2rem;
+    width: 21.5rem;
+}
+.card-general img{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 2rem;
+    border-radius: 0.3rem;
+}
+.queue-song-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.song-views img{
+    width: 1rem;
+    height: 1rem;
+}
