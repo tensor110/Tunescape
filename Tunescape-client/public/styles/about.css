@@ -1,0 +1,10 @@
+.about{
+    background-color: beige;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-about{
+    font-size: 5rem;
+}

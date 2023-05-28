@@ -3,9 +3,14 @@ const song = document.getElementById('song');
 
 let currentindex = 0;
 let isRepeat = false;
-let isAutoplay= true;
+
 song.src = src[currentindex];
 
+// Triggering autoplay
+
+song.addEventListener('ended', () => {
+    playNext();
+})
 
 
 
@@ -24,47 +29,40 @@ function playNext() {
 }
 
 function playPrevious() {
+    if (song.currentTime < 2) {
 
-    if (currentindex === 0) {
-        currentindex = src.length - 1;
+        if (currentindex === 0) {
+            currentindex = src.length - 1;
+        }
+        else {
+            currentindex--;
+        }
+
+        song.src = src[currentindex];
+        song.play();
     }
     else {
-        currentindex--;
+        song.currentTime = 0;
     }
-
-    song.src = src[currentindex];
-    song.play();
 }
 
 function repeat() {
-    isRepeat= !(isRepeat);
+    isRepeat = !(isRepeat);
     if (isRepeat) {
-        document.getElementById('r').innerHTML='Repeat on';
-        song.addEventListener('ended', ()=>{
-            song.play();
+        document.getElementById('r').innerHTML = 'Repeat: on';
+        song.addEventListener('ended', () => {
+            playPrevious();
         })
     }
-    else{
-        document.getElementById('r').innerHTML='';
-        song.addEventListener('ended', ()=>{
-            autoplay();
-        })
-    }
-}
-
-function autoplay(){
-    isAutoplay=!(isAutoplay);
-    if(isAutoplay){
-        document.getElementById('ap').innerHTML='Autoplay on';
-        song.addEventListener('ended', ()=>{
+    else {
+        document.getElementById('r').innerHTML = 'Repeat: off';
+        song.addEventListener('ended', () => {
             playNext();
         })
+
     }
-    else{
-        document.getElementById('ap').innerHTML='';
-        song.addEventListener('ended', ()=>{
-            
-        })
-    }
+
 }
+
+
 
