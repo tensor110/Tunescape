@@ -15,6 +15,19 @@ let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/use
 let hash_key;
 let hash_user_pic;
 
+
+
+
+
+
+
+
+
+
+
+
+//ROUTES
+
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
 })
@@ -24,12 +37,12 @@ app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res
   const songname = req.body.song_name
   console.log(songname)
   console.log(file)
-  const result = await uploadToS3(file)
+  const result = await uploadMusicToS3(file)
   // res.send({imagePath: `/images/${result.Key}`})
   console.log(result);
   addItem({
     "song_name": songname,
-    "hash_key": result.key
+    "hash_key": result.Key
   })
   // console.log("$KEY : " + result.key);
   res.redirect('/SongPosted');
@@ -59,10 +72,8 @@ app.post('/getsong', async (req, res) => {
 
 app.get('/playsong', async (req, res) => {
   // const DATA_COLLECTED = await downloadFromS3ViaCloudFront(hash_key);
-  DATA_COLLECTED="https://d1uzpajnrcv6ws.cloudfront.net/bc3108730d90970b9b66e6c25bfa6a5d"
-  console.log(DATA_COLLECTED)
-  DATA_COLLECTED.pipe(res)
-
+  console.log(hash_key)
+  res.render("player.ejs",{hash_key:hash_key})
 })
 
 app.get('/authen', (req, res) => {
