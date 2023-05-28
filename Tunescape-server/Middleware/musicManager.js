@@ -10,10 +10,10 @@
 const fs= require('fs');
 const path= require('path');
 
-p= path.join(__dirname,'../Database/tunescapedb.json');
+let path_to_tunescapedb= path.join(__dirname,'../Database/tunescapedb.json');
 
 
-const data = JSON.parse(fs.readFileSync(p,'utf-8'));
+const data = JSON.parse(fs.readFileSync(path_to_tunescapedb,'utf-8'));
 
 //Takes id of item as parameter and returns the item as an object if found else returns null.
 
@@ -64,7 +64,7 @@ function getIndex(id){
 
 function writeFile(data){
     const dataString= JSON.stringify(data,null,2);
-    fs.writeFile(p,dataString ,'utf8',(err)=>{
+    fs.writeFile(path_to_tunescapedb,dataString ,'utf8',(err)=>{
         if (err){
             console.log(err);
         }
