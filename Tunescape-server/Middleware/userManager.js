@@ -48,12 +48,13 @@ function userAuthenticator(username, password) {
 
 }
 
-function addUserToDb(username,password,email,telephone){
+function addUserToDb(username,password,email,telephone,hash_user_pic){
     data.push({
         "username":username,
         "password":password,
         "email":email,
-        "telephone":telephone
+        "telephone":telephone,
+        "hash_user_pic":hash_user_pic
     })
     writeFile(data)
 }
@@ -69,4 +70,13 @@ function checkDuplicacy(username,email,telephone){
     }
 }
 
-module.exports = { userAuthenticator ,addUserToDb,checkDuplicacy}
+function retrieveUser(username){
+    for (const item of data){
+        if (item.username == username )
+        return item;
+    }
+    return null;
+
+}
+
+module.exports = { userAuthenticator ,addUserToDb,checkDuplicacy,retrieveUser}
