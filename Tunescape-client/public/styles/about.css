@@ -24,9 +24,9 @@
 .static-text{
     /* text-shadow: unset 1rem 1rem 10px black; */
     font-weight: var(--font-wt-bold);
-    background: -webkit-linear-gradient(90deg, var(--color4) , var(--color5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgb(255, 255, 255);
+    text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 50px;
+    
 }
 .dynamic-text li{
     font-size: 4rem;
