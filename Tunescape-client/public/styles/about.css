@@ -24,7 +24,7 @@
 .static-text{
     /* text-shadow: unset 1rem 1rem 10px black; */
     font-weight: var(--font-wt-bold);
-    background: -webkit-linear-gradient(90deg, var(--color1), var(--color4), var(--color3));
+    background: -webkit-linear-gradient(90deg, var(--color4) , var(--color5));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
