@@ -1,9 +1,13 @@
 const express= require('express')
+const path= require('path')
 const app = express();
 const ejs =require('ejs')
 app.set('view engine','ejs');
 app.set("views","views");
 app.use(express.static('public'));
+
+
+const songSrc= 'https://drive.google.com/uc?id=1zc6HhaAM34wSqOUvSxfsbKT8lOMetN6O';
 
 app.get('/', (req, res) => {
   
@@ -11,7 +15,9 @@ app.get('/', (req, res) => {
   });
 app.get('/stream', (req, res) => {
   
-    res.render('stream');
+    res.render('stream',{
+      songSrc
+    });
   });
 
 app.use((req, res, next) => {
