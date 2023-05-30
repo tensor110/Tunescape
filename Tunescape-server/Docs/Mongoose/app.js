@@ -111,6 +111,7 @@ async function main() {
   } finally {
     client.close();
   }
+
 }
 
 main()
