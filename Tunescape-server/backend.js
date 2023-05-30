@@ -16,16 +16,6 @@ let hash_key;
 let hash_user_pic;
 
 
-
-
-
-
-
-
-
-
-
-
 //ROUTES
 
 app.get('/', (req, res) => {
