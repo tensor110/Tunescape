@@ -1,5 +1,5 @@
 //To perform CRUD operations on the database.
-/**
+/*
   METHODS :
   addItem(obj);
   removeItem(id);
@@ -45,18 +45,18 @@ function removeItem(id){
 
 //Takes index and full modified object as argument
 
-function editItem(id,changes){
-    const indexToEdit= getIndex(id);
-    data[indexToEdit]= changes;
-    writeFile(data);
+// function editItem(id,changes){
+//     const indexToEdit= getIndex(id);
+//     data[indexToEdit]= changes;
+//     writeFile(data);
 
-}
+// }
 
 
 //Takes id of object as input and finds the index of the respective object
 
 function getIndex(id){
-    const index= data.indexOf(data.find(obj=>obj.id === id));
+    const index= data.indexOf(data.find(obj=>obj.song_name === id));
     return index;
 }
 
@@ -73,10 +73,53 @@ function writeFile(data){
     })
 }
 
+function getSong(song_name){
+    console.log(song_name)
+    const index= data.indexOf(data.find(obj=>obj.song_name ===song_name));
+    console.log("Song Index = " + index)
+    return index;
+}
+
+function editItem(song_name,changes){
+    console.log(song_name)
+    const indexToEdit= getIndex(song_name);
+    data[indexToEdit]= changes;
+    writeFile(data);
+}
+
+// addItem(  {
+//     "song_name": "talibani",
+//     "hash_key": "13c77c5cb8243d034ca702c5b476a8da"
+//   })
+
+// editItem('talibani2',  {
+//     "song_name": "talibani",
+//     "hash_key": "KEY_UPDATE",
+//     "thumbnail":"thumbnail"
+//   })
+
+function searchSong(song_name){
+    
+    for (const item of data){
+        if (item.song_name == song_name )
+        console.log(item.song_name)
+        return item.song_name;
+    }
+    return null;
+}
+
+// console.log(searchSong('musik4'));
+
+// editItem(searchSong('suzume'),{
+//         "song_name": "musikpo",
+//         "hash":'08454t64 c4'
+// })
 
 module.exports= {
     addItem,
     searchItem,
     editItem,
-    removeItem
+    removeItem,
+    getSong,
+    searchSong
 }

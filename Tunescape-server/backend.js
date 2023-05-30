@@ -18,6 +18,7 @@ let hash_user_pic;
 
 //ROUTES
 
+
 app.get('/', (req, res) => {
   res.render('addPage.ejs');
 })
@@ -109,16 +110,4 @@ app.post('/adduser', upload.single('song')/*Multer Middleware*/,async (req, res)
 
 app.listen(PORT || process.env.PORT, () => {
   console.log(`App live @ :http://localhost:${PORT} `)
-})
-
-
-app.get('/dashboard',async(req,res)=>{
-  // res.render('user_dashboard.ejs',{username:"Soubhik",email:"SKG@123"})
-  const DATA_COLLECTED2 = await downloadfromS3('9212e9d5a62b73910a9ceeaec05d7834');
-  console.log(DATA_COLLECTED2)
-  DATA_COLLECTED2.pipe(res)
-})
-
-app.get('/xyz',(req,res)=>{
-  res.render("xyz.ejs",{key:'8b99b4004c5f1900122f1b0807aa5c32'})
 })
