@@ -19,6 +19,10 @@ app.get('/stream', (req, res) => {
       songSrc
     });
   });
+app.get('/dashboard', (req, res) => {
+  
+    res.render('dashboard');
+  });
 
 app.use((req, res, next) => {
     res.status(404).render('404');

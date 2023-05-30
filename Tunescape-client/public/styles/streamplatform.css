@@ -14,7 +14,6 @@
     "player player";
     margin-top: 6rem;
     padding-top: 2rem;
-    /* position: fixed; */
 }
 .song-info{
     grid-area: song-info;
@@ -22,9 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    /* border: 2px solid rgb(255, 255, 255); */
     padding: 0rem 4rem;
-    /* margin-top: 2rem; */
     border-radius: 2rem;
     height: 20rem;
     width: 25rem;
@@ -42,9 +39,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    /* border: 2px solid black; */
     padding: 0.5rem 1rem;
-    margin: 0rem 0rem;
     border-radius: 2rem;
     height: 20rem;
     width: 25rem;
@@ -54,7 +49,6 @@
 .player{
     grid-area: player;
     height: 7rem;
-    /* border: 2px solid green; */
     border-radius: 2rem;
     display: flex;
     flex-direction: column;

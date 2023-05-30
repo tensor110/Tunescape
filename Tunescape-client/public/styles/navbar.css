@@ -48,7 +48,6 @@ textarea::placeholder {
     border: none;
     font-family: var(--font-logo);
     background: none;
-    /* background-color: transparent; */
     color: white;
     font-size: 1rem;
 }
