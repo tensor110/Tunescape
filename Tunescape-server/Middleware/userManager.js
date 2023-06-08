@@ -53,27 +53,39 @@ function userAuthenticator(username, password) {
 
 }
 
-function addUserToDb(username,password,email,telephone,hash_user_pic){
-    data.push({
-        "username":username,
-        "password":password,
-        "email":email,
-        "telephone":telephone,
-        "hash_user_pic":hash_user_pic
-    })
-    writeFile(data)
-}
+// function addUserToDb(username,password,email,telephone,hash_user_pic){
+//     data.push({
+//         "username":username,
+//         "password":password,
+//         "email":email,
+//         "telephone":telephone,
+//         "hash_user_pic":hash_user_pic
+//     })
+//     writeFile(data)
+// }
+function addUserToDb(username, password, email, telephone, hash_user_pic) {
+    const newUser = {
+      username: username,
+      password: password,
+      email: email,
+      telephone: telephone,
+      hash_user_pic: hash_user_pic
+    };
+  
+    data.push(newUser);
+    writeFile(data);
+    console.log(`User added successfully: ${JSON.stringify(newUser)}`);
+  }
 
-function checkDuplicacy(username,email,telephone){
-    for(const item of data){
-        if(item.username===username ||item.email===email || item.telephone===telephone){
-            return true
-        }
-        else{
-            return false
-        }
+
+function checkDuplicacy(username, email, telephone) {
+    for (const item of data) {
+      if (item.username === username || item.email === email || item.telephone === telephone) {
+        return true;
+      }
     }
-}
+    return false;
+  }
 
 function retrieveUser(username){
     for (const item of data){

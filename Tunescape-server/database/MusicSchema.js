@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Music = new mongoose.Schema({
     Title: {
         type: String,
-        minLength: 1
+        minLength: 2
     },
     SongHash: {
         type: String,
@@ -26,9 +26,9 @@ const Music = new mongoose.Schema({
     },
     ThumbnailHash: {
         type: String,
-        required: true
+        required:true
     },
     Plays: Number
 })
 
-module.exports = Mongoose.model("Music",Music);
+module.exports = mongoose.model("Music",Music);
