@@ -18,8 +18,19 @@ let hash_user_pic;
 
 //ROUTES
 
+app.get('/',(req,res)=>{
+  res.render('Welcome.ejs');
+})
 
-app.get('/', (req, res) => {
+app.post('/authentify',(req,res)=>{
+    res.redirect('/authen');
+})
+
+app.post('/songify',(req,res)=>{
+  res.redirect("/addSongPage");
+})
+
+app.get('/addSongPage', (req, res) => {
   res.render('addPage.ejs');
 })
 
