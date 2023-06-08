@@ -32,9 +32,11 @@ function writeFile(data){
 //Takes id of item as parameter and returns the item as an object if found else returns null.
 
 function userAuthenticator(username, password) {
+    let count =0;
     for (const item of data) {
         if (item.username === username) {
             if (item.password === password) {
+                count++;
                 return true;
             }
             else {
@@ -44,6 +46,9 @@ function userAuthenticator(username, password) {
         else {
             continue;
         }
+    }
+    if (count==0){
+        return false;
     }
 
 }
@@ -65,7 +70,7 @@ function checkDuplicacy(username,email,telephone){
             return true
         }
         else{
-            false
+            return false
         }
     }
 }
