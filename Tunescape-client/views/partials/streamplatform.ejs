@@ -11,8 +11,8 @@
 
         </div>
         <div class="player glass-morph">
-            
-            <audio  src="" id="song"></audio>
+             <% let songSrc= `https://d1uzpajnrcv6ws.cloudfront.net/song[hash]`%>
+            <audio  src=<%= songSrc%> id="song"></audio>
             <div class="buttons">
                 <input type="range" name="" id="volume-bar" value="100">
                 <img src="/assets/icons/previous-track.png" alt="" id="previous">

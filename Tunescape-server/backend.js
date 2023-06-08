@@ -20,7 +20,7 @@ let hash_user_pic;
 
 
 app.get('/', (req, res) => {
-  res.render('addPage.ejs');
+  res.render('addPage.ejs',{count:'69'});
 })
 
 app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res) => {
