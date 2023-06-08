@@ -7,7 +7,6 @@ mongoose.connect(url).then(() => { console.log('connect') })
 
 
 async function createUser(name, age, pass, mail, hash) {
-
     try {
         const user = new User({
             username: name,
@@ -36,6 +35,7 @@ async function findUser(nam){
 
         console.log("User = " + user)
     }
+    
     catch(e){console.log(e.message)}
 }
 
