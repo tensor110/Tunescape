@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJS Fetch Example</title>
+</head>
+<body>
+    <h1>Fetch Example</h1>
+
+    <div id="result"></div>
+
+    <script>
+        // Client-side JavaScript code
+        fetch('/api/data')
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                document.getElementById('result').innerText = data.message;
+            })
+            .catch(error => {
+                // Handle any errors
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
