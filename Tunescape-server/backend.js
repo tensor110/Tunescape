@@ -103,8 +103,16 @@ app.post('/check', (req, res) => {
   console.log(req.body)
   console.log(username);
   console.log(password);
-  userAuthenticator(username, password) ? res.end("User") : res.end("Not An User");
+  userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
+
+
 })
+
+function timer(res){
+  setTimeout(()=>{
+    res.redirect('/');
+  },2000)
+}
 
 app.post('/adduser', upload.single('song')/*Multer Middleware*/,async (req, res) => {
   const username = req.body.username;

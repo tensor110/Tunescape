@@ -1,5 +1,7 @@
 # Tunescape
 A music streaming platform for authorized users.
+
+```
 .
 └── Tunescape/
     ├── node modules
@@ -20,3 +22,5 @@ A music streaming platform for authorized users.
     ├── README.md
     ├── .gitignore
     └── package-lock.json
+    
+    ```
