@@ -18,9 +18,20 @@ let hash_user_pic;
 
 //ROUTES
 
+app.get('/',(req,res)=>{
+  res.render('Welcome.ejs');
+})
 
-app.get('/', (req, res) => {
-  res.render('addPage.ejs',{count:'69'});
+app.post('/authentify',(req,res)=>{
+    res.redirect('/authen');
+})
+
+app.post('/songify',(req,res)=>{
+  res.redirect("/addSongPage");
+})
+
+app.get('/addSongPage', (req, res) => {
+  res.render('addPage.ejs');
 })
 
 app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res) => {
