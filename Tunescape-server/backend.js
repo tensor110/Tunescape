@@ -1,59 +1,68 @@
 const express = require('express');
 const app = express();
 const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 const ejs = require('ejs');
 app.use(express.static(__dirname + 'Server-Frontend/public'));
 const PORT = 6969;
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-const upload = multer({ dest: 'uploads/' })
 app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
-let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./Middleware/s3-modules');
+// let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./Middleware/s3-modules');
 // let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
 // let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
 let {createUser,findUser,addMusicto__MONGODB,updateMusicPREV__MONGODB}=  require('./Database/CONTROLDATABASEMAIN')
 let hash_key;
 let hash_user_pic;
 
+const welcomeRoute = require("./Routes/Welcome")
+const addSongRoute = require("./Routes/AddSong")
+const AuthenRoute = require("./Routes/Authentication.js")
+
 
 //ROUTES
 
-app.get('/',(req,res)=>{
-  res.render('Welcome.ejs');
-})
+app.use('/',welcomeRoute)
+// app.get('/',(req,res)=>{
+//   res.render('Welcome.ejs');
+// })
 
-app.post('/authentify',(req,res)=>{
-    res.redirect('/authen');
-})
+// app.post('/authentify',(req,res)=>{
+//     res.redirect('/authen');
+// })
 
-app.post('/songify',(req,res)=>{
-  res.redirect("/addSongPage");
-})
+// app.post('/songify',(req,res)=>{
+//   res.redirect("/addSongPage");
+// })
 
-app.get('/addSongPage', (req, res) => {
-  res.render('addPage.ejs');
-})
+// app.get('/addSongPage', (req, res) => {
+//   res.render('addPage.ejs');
+// })
 
-app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res) => {
-  const file = req.file
-  const songname = req.body.song_name
-  console.log(songname)
-  console.log(file)
-  const result = await uploadMusicToS3(file)
-  // res.send({imagePath: `/images/${result.Key}`})
-  console.log(result);
-  addItem({
-    "song_name": songname,
-    "hash_key": result.Key
-  })
-  // console.log("$KEY : " + result.key);
-  res.redirect('/SongPosted');
-})
 
-app.get('/SongPosted', (req, res) => {
-  res.render('confirmation.ejs')
-})
+app.use('/',addSongRoute)
+
+// app.post('/addsong', upload.single('song')/*Multer Middleware*/, async (req, res) => {
+//   const file = req.file
+//   const songname = req.body.song_name
+//   console.log(songname)
+//   console.log(file)
+//   const result = await uploadMusicToS3(file)
+//   // res.send({imagePath: `/images/${result.Key}`})
+//   console.log(result);
+//   addItem({
+//     "song_name": songname,
+//     "hash_key": result.Key
+//   })
+//   // console.log("$KEY : " + result.key);
+//   res.redirect('/SongPosted');
+// })
+
+// app.get('/SongPosted', (req, res) => {
+//   res.render('confirmation.ejs')
+// })
+
 
 app.get('/fetch-song', (req, res) => {
   res.render('song-fetch.ejs')
@@ -79,23 +88,19 @@ app.get('/playsong', async (req, res) => {
   res.render("player.ejs",{hash_key:hash_key})
 })
 
-app.get('/authen', (req, res) => {
-  console.log("User hit homepage")
-  res.render("home.ejs");
-})
 
-app.post('/l_or_s', (req, res) => {
-  console.log(req.body.login)
-  console.log(req.body.signup)
-  req.body.login ? res.redirect('/login') : res.redirect('/signup');
-})
+app.use('/',AuthenRoute)
+// app.use('')
+// app.get('/authen', (req, res) => {
+//   console.log("User hit homepage")
+//   res.render("home.ejs");
+// })
+
+
+
 
 app.get('/login', (req, res) => {
   res.render("login.ejs");
-})
-
-app.get("/signup", (req, res) => {
-  res.render('signup.ejs');
 })
 
 app.post('/check', (req, res) => {
@@ -108,6 +113,17 @@ app.post('/check', (req, res) => {
 
 
 })
+
+app.get("/signup", (req, res) => {
+  res.render('signup.ejs');
+})
+
+// app.post('/l_or_s', (req, res) => {
+//   console.log(req.body.login)
+//   console.log(req.body.signup)
+//   req.body.login ? res.redirect('/login') : res.redirect('/signup');
+// })
+
 
 function timer(res){
   setTimeout(()=>{
