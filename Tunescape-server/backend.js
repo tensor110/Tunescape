@@ -12,7 +12,7 @@ app.set("views", "Server-Frontend")
 // let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./Middleware/s3-modules');
 // let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
 // let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
-let {createUser,findUser,addMusicto__MONGODB,updateMusicPREV__MONGODB}=  require('./Database/CONTROLDATABASEMAIN')
+let {createUser,findUser,findMusic__MONGODB,addMusicto__MONGODB,updateMusicPREV__MONGODB}=  require('./Database/CONTROLDATABASEMAIN')
 let hash_key;
 let hash_user_pic;
 
@@ -64,29 +64,29 @@ app.use('/',addSongRoute)
 // })
 
 
-app.get('/fetch-song', (req, res) => {
-  res.render('song-fetch.ejs')
-})
+// app.get('/fetch-song', (req, res) => {
+//   res.render('song-fetch.ejs')
+// })
 
-app.post('/getsong', async (req, res) => {
-  const GetSongName = req.body.songGETname
-  console.log(GetSongName);
+// app.post('/getsong', async (req, res) => {
+//   const GetSongName = req.body.songGETname
+//   console.log(GetSongName);
 
-  console.log(searchItem(GetSongName));
+//   console.log(searchItem(GetSongName));
 
-  // ---------------------------
+//   // ---------------------------
 
-  hash_key = searchItem(GetSongName);
-  res.redirect('/playsong');
-}
-)
+//   hash_key = searchItem(GetSongName);
+//   res.redirect('/playsong');
+// }
+// )
 
 
-app.get('/playsong', async (req, res) => {
-  // const DATA_COLLECTED = await downloadFromS3ViaCloudFront(hash_key);
-  console.log(hash_key)
-  res.render("player.ejs",{hash_key:hash_key})
-})
+// app.get('/playsong', async (req, res) => {
+//   // const DATA_COLLECTED = await downloadFromS3ViaCloudFront(hash_key);
+//   console.log(hash_key)
+//   res.render("player.ejs",{hash_key:hash_key})
+// })
 
 
 app.use('/',AuthenRoute)

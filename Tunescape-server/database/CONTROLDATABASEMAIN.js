@@ -45,13 +45,15 @@ async function addMusicTo__MONGODB(title, songhash, artist, plays) {
     })
 
     music.save()
-    .then(() => { console.log("Saved Music") })
+        .then(() => { console.log("Saved Music") })
     // .then(() => { console.log(music) })
 }
 
-async function updateMusicPREV__MONGODB(title,ThumbnailHash) {
-    try{
-        const musicFinder =await Music.where("Title").equals(title).limit(1)
+
+
+async function updateMusicPREV__MONGODB(title, ThumbnailHash) {
+    try {
+        const musicFinder = await Music.where("Title").equals(title).limit(1)
         // await  Music.updateOne({ Title: musicFinder[0].title }, { ThumbnailHash: ThumbnailHash }).then((err) => {
         //     if (err) console.log(err);
         //     else console.log("Update successful");
@@ -59,10 +61,42 @@ async function updateMusicPREV__MONGODB(title,ThumbnailHash) {
         // });
         musicFinder[0].ThumbnailHash = ThumbnailHash;
         console.log(musicFinder);
-    }  catch (e) { console.log(e.message) }
+    } catch (e) { console.log(e.message) }
 }
 
-// addMusicTo__MONGODB("Saware","0xhsuugyyywaj","Pritam",23)
+let music__SEARCHED;
+async function findMusic__MONGODB(title) {
+    try {
+        music__SEARCHED = await Music.findOne({ Title: title });
+        console.log( music__SEARCHED);
+        return music__SEARCHED.SongHash;
+    } catch (e) {
+        console.log(e)
+        // return null;
+    }
+
+}
+
+findMusic__MONGODB("Paradise")
+    .then(hash => {
+        console.log("Hash =", hash);
+    })
+    .catch(error => {
+        console.log("Error:", error);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+// TEST CASES : 
 // addMusicTo__MONGODB("Paradise","0xhsuugyyywaj","Pritam",23)
 // addMusicTo__MONGODB("Goku","0xhsuugyyywaj","Pritam",23)
 // addMusicTo__MONGODB("Suzume","0xhsuugyyywaj","Pritam",23)
@@ -72,9 +106,8 @@ async function updateMusicPREV__MONGODB(title,ThumbnailHash) {
 // updateMusicPREV__MONGODB("Goku","newHash")
 
 // updateMusicPREV__MONGODB("Saware","OXPIAISNDIF")
-    // createUser("soubhik gon hu main",23, "ojsaocb", 'soubhikhumai@test.com', '0xggfsjvcHIAGUFCAYYR7')
-    // createUser("Gonzi",23, "ojsaocb", 'soubhik@test.com', '0xggfsjvcHIAGUFCAYYR7')
-    // createUser("LEFT ASS",33, "gaand", 'soubhik@testicles.com', '0xggfsjvcHIAGUFCAYYR7lele')
-    // findUser("LEFT ASS")
-
-module.exports= {createUser,findUser,addMusicTo__MONGODB,updateMusicPREV__MONGODB}
+// createUser("soubhik gon hu main",23, "ojsaocb", 'soubhikhumai@test.com', '0xggfsjvcHIAGUFCAYYR7')
+// createUser("Gonzi",23, "ojsaocb", 'soubhik@test.com', '0xggfsjvcHIAGUFCAYYR7')
+// createUser("LEFT ASS",33, "gaand", 'soubhik@testicles.com', '0xggfsjvcHIAGUFCAYYR7lele')
+// findUser("LEFT ASS")
+module.exports = { createUser, findUser, findMusic__MONGODB, addMusicTo__MONGODB, updateMusicPREV__MONGODB }
