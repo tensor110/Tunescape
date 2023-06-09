@@ -1,0 +1,10 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+.login{
+    border: 2px solid black;
+    
+}

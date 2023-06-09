@@ -23,6 +23,14 @@ app.get('/dashboard', (req, res) => {
   
     res.render('dashboard');
   });
+app.get('/login', (req, res) => {
+  
+    res.render('login');
+  });
+app.get('/search', (req, res) => {
+  
+    res.render('search');
+  });
 
 app.use((req, res, next) => {
     res.status(404).render('404');

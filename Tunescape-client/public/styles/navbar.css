@@ -39,18 +39,21 @@ textarea::placeholder {
     font-family: var(--font-logo);
   color: #ffffff;
 }
+.nav-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
 #stream, #dashboard, #signup{
-    width: 7rem;
-    margin: 0 0.3rem;
-    padding: 0.4rem 0.5rem;
-    border-radius: 25rem;
+    margin-right: 1.5rem;
+    padding: 0.4rem 0.3rem;
     cursor: pointer;
     border: none;
     font-family: var(--font-logo);
     background: none;
+    border-bottom: 1px solid white;
     color: white;
     font-size: 1rem;
 }
-#stream:hover, #dashboard:hover, #signup:hover{
-    /* background: var(--hover-color); */
+#signup{
+    margin-right: 0;
 }
