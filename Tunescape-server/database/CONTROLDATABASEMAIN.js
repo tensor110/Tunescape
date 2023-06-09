@@ -65,49 +65,46 @@ async function updateMusicPREV__MONGODB(title, ThumbnailHash) {
 }
 
 let music__SEARCHED;
+    
 async function findMusic__MONGODB(title) {
-    try {
+    try{
         music__SEARCHED = await Music.findOne({ Title: title });
-        console.log( music__SEARCHED);
+        // console.log( music__SEARCHED);
         return music__SEARCHED.SongHash;
-    } catch (e) {
+    }catch(e){
         console.log(e)
-        // return null;
+        return null;
     }
-
 }
 
-findMusic__MONGODB("Paradise")
-    .then(hash => {
-        console.log("Hash =", hash);
-    })
-    .catch(error => {
-        console.log("Error:", error);
-    });
+
+//Load 20 jokes from the API to the local system and take the index as input to display the joke.
+
+const jokes= [];
 
 
+async function getJokes(title){
+
+        const json= await Music.findOne({ Title: title });
+        // const json= await data.json();
+        await appendJoke(json);
+        // console.log(json)
+    
+}
 
 
+function appendJoke(joke){
+    jokes.push(joke);
+    }
 
 
+async function displayJokes(){
+    await getJokes("Paradise");
+    console.log(jokes[0].SongHash);
+}
+
+console.log(jokes);
+displayJokes();
 
 
-
-
-
-
-// TEST CASES : 
-// addMusicTo__MONGODB("Paradise","0xhsuugyyywaj","Pritam",23)
-// addMusicTo__MONGODB("Goku","0xhsuugyyywaj","Pritam",23)
-// addMusicTo__MONGODB("Suzume","0xhsuugyyywaj","Pritam",23)
-// addMusicTo__MONGODB("Tuade","0xhsuugyyywaj","Pritam",23)
-
-
-// updateMusicPREV__MONGODB("Goku","newHash")
-
-// updateMusicPREV__MONGODB("Saware","OXPIAISNDIF")
-// createUser("soubhik gon hu main",23, "ojsaocb", 'soubhikhumai@test.com', '0xggfsjvcHIAGUFCAYYR7')
-// createUser("Gonzi",23, "ojsaocb", 'soubhik@test.com', '0xggfsjvcHIAGUFCAYYR7')
-// createUser("LEFT ASS",33, "gaand", 'soubhik@testicles.com', '0xggfsjvcHIAGUFCAYYR7lele')
-// findUser("LEFT ASS")
 module.exports = { createUser, findUser, findMusic__MONGODB, addMusicTo__MONGODB, updateMusicPREV__MONGODB }
