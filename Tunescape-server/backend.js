@@ -10,16 +10,28 @@ const upload = multer({ dest: 'uploads/' })
 app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
 let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./Middleware/s3-modules');
-let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
-let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
+// let { addItem, searchItem, editItem, removeItem } = require('./Middleware/musicManager')
+// let { userAuthenticator,addUserToDb ,checkDuplicacy} = require('./Middleware/userManager');
+let {createUser,findUser,addMusicto__MONGODB,updateMusicPREV__MONGODB}=  require('./Database/CONTROLDATABASEMAIN')
 let hash_key;
 let hash_user_pic;
 
 
 //ROUTES
 
+app.get('/',(req,res)=>{
+  res.render('Welcome.ejs');
+})
 
-app.get('/', (req, res) => {
+app.post('/authentify',(req,res)=>{
+    res.redirect('/authen');
+})
+
+app.post('/songify',(req,res)=>{
+  res.redirect("/addSongPage");
+})
+
+app.get('/addSongPage', (req, res) => {
   res.render('addPage.ejs');
 })
 
@@ -92,19 +104,29 @@ app.post('/check', (req, res) => {
   console.log(req.body)
   console.log(username);
   console.log(password);
-  userAuthenticator(username, password) ? res.end("User") : res.end("Not An User");
+  userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
+
+
 })
+
+function timer(res){
+  setTimeout(()=>{
+    res.redirect('/');
+  },2000)
+}
 
 app.post('/adduser', upload.single('song')/*Multer Middleware*/,async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.username;
-  const telephone = req.body.password;
+  const telephone = req.body.telephone;
+  const age = req.body.age;
   const file = req.file
-  const result = await uploadMusicToS3(file);
+  const result = await UploadPicturesToS3(file);
   hash_user_pic=result.key;
   console.log(result);
-  checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone,hash_user_pic);
+  // checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone,hash_user_pic);
+  createUser(username,age,password,email,result.Key)
   res.end("Added to DB");
 })
 

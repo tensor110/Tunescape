@@ -32,9 +32,11 @@ function writeFile(data){
 //Takes id of item as parameter and returns the item as an object if found else returns null.
 
 function userAuthenticator(username, password) {
+    let count =0;
     for (const item of data) {
         if (item.username === username) {
             if (item.password === password) {
+                count++;
                 return true;
             }
             else {
@@ -45,30 +47,45 @@ function userAuthenticator(username, password) {
             continue;
         }
     }
-
-}
-
-function addUserToDb(username,password,email,telephone,hash_user_pic){
-    data.push({
-        "username":username,
-        "password":password,
-        "email":email,
-        "telephone":telephone,
-        "hash_user_pic":hash_user_pic
-    })
-    writeFile(data)
-}
-
-function checkDuplicacy(username,email,telephone){
-    for(const item of data){
-        if(item.username===username ||item.email===email || item.telephone===telephone){
-            return true
-        }
-        else{
-            false
-        }
+    if (count==0){
+        return false;
     }
+
 }
+
+// function addUserToDb(username,password,email,telephone,hash_user_pic){
+//     data.push({
+//         "username":username,
+//         "password":password,
+//         "email":email,
+//         "telephone":telephone,
+//         "hash_user_pic":hash_user_pic
+//     })
+//     writeFile(data)
+// }
+function addUserToDb(username, password, email, telephone, hash_user_pic) {
+    const newUser = {
+      username: username,
+      password: password,
+      email: email,
+      telephone: telephone,
+      hash_user_pic: hash_user_pic
+    };
+  
+    data.push(newUser);
+    writeFile(data);
+    console.log(`User added successfully: ${JSON.stringify(newUser)}`);
+  }
+
+
+function checkDuplicacy(username, email, telephone) {
+    for (const item of data) {
+      if (item.username === username || item.email === email || item.telephone === telephone) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 function retrieveUser(username){
     for (const item of data){
