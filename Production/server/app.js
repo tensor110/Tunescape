@@ -18,7 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
 let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./middlewares/AMAZONS3');
-let {createUser,findUser,findMusic__MONGODB,addMusicto__MONGODB,updateMusicPREV__MONGODB}=  require('./Database/CONTROLDATABASEMAIN')
+
+let {createUser,findUser} = require("./database/controller/user/user.js")
+let {ADD_MUSIC_TO_MONGO,UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO,SEARCH_MUSIC_IN_MONGO} = require("./database/controller/music/music.js")
+
 let hash_key;
 let hash_user_pic;
 
@@ -27,17 +30,17 @@ const addSongRoute = require("./routes/addsong")
 const AuthenRoute = require("./routes/authentication")
 const LoginRoute = require("./routes/login")
 const SignupRoute = require("./routes/signup")
+const playsongRoute = require("./routes/playsong");
 //ROUTES
+app.get('/',(req,res)=>res.redirect("/tunescape.com"))
 app.use('/',welcomeRoute)
 app.use('/',addSongRoute)
 app.use('/',AuthenRoute)
 app.use("/",LoginRoute)
 app.use("/",SignupRoute)
-app.use("/",fetchSong)
+app.use("/",playsongRoute)
 
-app.get("/signup", (req, res) => {
-  res.render('signup.ejs');
-})
+
 app.listen(PORT || process.env.PORT, () => {
   console.log(`App live @ :http://localhost:${PORT} `)
 })

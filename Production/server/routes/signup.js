@@ -19,7 +19,7 @@ Router.post('/adduser', upload.single('song')/*Multer Middleware*/, async (req, 
     hash_user_pic = result.key;
     console.log(result);
     // checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone,hash_user_pic);
-    createUser(username, age, password, email, result.Key)
+    await createUser(username, age, password, email, result.Key)
     res.end("Added to DB");
 })
 

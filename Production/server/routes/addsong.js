@@ -2,7 +2,7 @@ const express= require("express");
 const Route = express.Router();
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
-let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('../Middleware/s3-modules');
+let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('../middlewares/AMAZONS3');
 
 Route.get('/tunescape.com/creatorspace', (req, res) => {
     res.render('addPage.ejs');
