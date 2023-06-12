@@ -21,8 +21,6 @@ Route.post('/getsong', async (req, res) => {
 
 }
 )
-
-
 Route.get('/playsong', async (req, res) => {
     // const DATA_COLLECTED = await downloadFromS3ViaCloudFront(hash_key);
     console.log(hash_key)
