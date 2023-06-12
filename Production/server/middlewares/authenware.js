@@ -1,9 +1,22 @@
+const { findUser } = require("../database/controller/user/user");
 const timer = require("./timer")
 
-function authenware(req,res,next){
+async function authenware(req,res,next){
     const username = req.body.username;
     const password = req.body.password;
-    userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
+
+    let foundUser = []
+    let result = await findUser(foundUser,username,password).then(()=>{
+        if(foundUser[0] === undefined){
+            return false
+        }
+        else{
+            return true;
+        }
+    })
+    console.log("result is " + result);
+
+    result? timer(res) : res.end("Not An User");
 }
 
 module.exports = authenware

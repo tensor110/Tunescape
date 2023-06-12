@@ -23,13 +23,11 @@ async function createUser(name, age, pass, mail, hash) {
 
 }
 
-
-var foundUser = []
-
-async function findUser(enteredname) {
+async function findUser(foundUser,enteredname,enteredpass) {
     try {
-        const user = await User.where("username").equals(enteredname)
-        if(user) foundUser.push(user)
+        const user = await User.where("username").equals(enteredname).where("password").equals(enteredpass);
+        if(user) await foundUser.push(user[0])
+        return foundUser
     }
     catch (e) { console.log(e.message) }
 }
