@@ -4,10 +4,10 @@ const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 
 
-
-Router.get("/signup", (req, res) => {
+Router.get("/tunescape.com/signup", (req, res) => {
     res.render('signup.ejs');
 })
+
 Router.post('/adduser', upload.single('song')/*Multer Middleware*/, async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;

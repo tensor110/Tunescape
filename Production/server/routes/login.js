@@ -3,11 +3,11 @@ const Router = express.Router();
 
 function timer(res){
     setTimeout(()=>{
-      res.redirect('/');
+      res.redirect('/tunescape.com/stream');
     },2000)
 }
 
-Router.get('/login', (req, res) => {
+Router.get('/tunescape.com/login', (req, res) => {
     res.render("login.ejs");
 })
 
