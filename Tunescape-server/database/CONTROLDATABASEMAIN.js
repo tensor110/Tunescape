@@ -64,47 +64,21 @@ async function updateMusicPREV__MONGODB(title, ThumbnailHash) {
     } catch (e) { console.log(e.message) }
 }
 
-let music__SEARCHED;
+let music__SEARCHED = [];
     
 async function findMusic__MONGODB(title) {
     try{
-        music__SEARCHED = await Music.findOne({ Title: title });
-        // console.log( music__SEARCHED);
-        return music__SEARCHED.SongHash;
+       let music = await Music.findOne({ Title: title });
+        // console.log( music);
+        music__SEARCHED.push(music.SongHash);
+        return music__SEARCHED.pop();
     }catch(e){
         console.log(e)
         return null;
     }
 }
-
-
-//Load 20 jokes from the API to the local system and take the index as input to display the joke.
-
-const jokes= [];
-
-
-async function getJokes(title){
-
-        const json= await Music.findOne({ Title: title });
-        // const json= await data.json();
-        await appendJoke(json);
-        // console.log(json)
-    
-}
-
-
-function appendJoke(joke){
-    jokes.push(joke);
-    }
-
-
-async function displayJokes(){
-    await getJokes("Paradise");
-    console.log(jokes[0].SongHash);
-}
-
-console.log(jokes);
-displayJokes();
-
+// findMusic__MONGODB("Paradise").then((hash)=>{
+//     console.log("hash"+hash);
+// })
 
 module.exports = { createUser, findUser, findMusic__MONGODB, addMusicTo__MONGODB, updateMusicPREV__MONGODB }

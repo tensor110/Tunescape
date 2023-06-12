@@ -18,8 +18,8 @@ let hash_user_pic;
 
 const welcomeRoute = require("./Routes/Welcome")
 const addSongRoute = require("./Routes/AddSong")
-const AuthenRoute = require("./Routes/Authentication.js")
-
+const AuthenRoute = require("./Routes/Authentication")
+const LoginRoute = require("./Routes/Login")
 
 //ROUTES
 
@@ -98,21 +98,19 @@ app.use('/',AuthenRoute)
 
 
 
+app.use("/",LoginRoute)
+// app.get('/login', (req, res) => {
+//   res.render("login.ejs");
+// })
 
-app.get('/login', (req, res) => {
-  res.render("login.ejs");
-})
-
-app.post('/check', (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  console.log(req.body)
-  console.log(username);
-  console.log(password);
-  userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
-
-
-})
+// app.post('/check', (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   console.log(req.body)
+//   console.log(username);
+//   console.log(password);
+//   userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
+// })
 
 app.get("/signup", (req, res) => {
   res.render('signup.ejs');
@@ -125,26 +123,26 @@ app.get("/signup", (req, res) => {
 // })
 
 
-function timer(res){
-  setTimeout(()=>{
-    res.redirect('/');
-  },2000)
-}
+// function timer(res){
+//   setTimeout(()=>{
+//     res.redirect('/');
+//   },2000)
+// }
 
-app.post('/adduser', upload.single('song')/*Multer Middleware*/,async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.username;
-  const telephone = req.body.telephone;
-  const age = req.body.age;
-  const file = req.file
-  const result = await UploadPicturesToS3(file);
-  hash_user_pic=result.key;
-  console.log(result);
-  // checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone,hash_user_pic);
-  createUser(username,age,password,email,result.Key)
-  res.end("Added to DB");
-})
+// app.post('/adduser', upload.single('song')/*Multer Middleware*/,async (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   const email = req.body.username;
+//   const telephone = req.body.telephone;
+//   const age = req.body.age;
+//   const file = req.file
+//   const result = await UploadPicturesToS3(file);
+//   hash_user_pic=result.key;
+//   console.log(result);
+//   // checkDuplicacy(username,email,telephone)?res.write("User with this credentials is already an user.Please Log in to your ID"):addUserToDb(username,password,email,telephone,hash_user_pic);
+//   createUser(username,age,password,email,result.Key)
+//   res.end("Added to DB");
+// })
 
 app.listen(PORT || process.env.PORT, () => {
   console.log(`App live @ :http://localhost:${PORT} `)
