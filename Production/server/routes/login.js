@@ -7,17 +7,15 @@ function timer(res){
     },2000)
 }
 
-Router.get('/tunescape.com/login', (req, res) => {
-    res.render("login.ejs");
-})
-
-Router.post('/check', (req, res) => {
+function authenware(req,res,next){
     const username = req.body.username;
     const password = req.body.password;
-    console.log(req.body)
-    console.log(username);
-    console.log(password);
     userAuthenticator(username, password) ? timer(res) : res.end("Not An User");
+}
+Router.post('/check',authenware)
+
+Router.get('/tunescape.com/login', (req, res) => {
+    res.render("login.ejs");
 })
 
 module.exports = Router

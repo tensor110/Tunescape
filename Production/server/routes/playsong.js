@@ -11,12 +11,11 @@ Route.post('/getsong', async (req, res) => {
     console.log(GetSongName);
     hash_key =findMusic__MONGODB(GetSongName).SongHash
     console.log(hash_key);
-    res.redirect('/playsong');
+    res.redirect('/tunescape.com/stream/song');
 
 }
 )
-Route.get('/playsong', async (req, res) => {
-    // const DATA_COLLECTED = await downloadFromS3ViaCloudFront(hash_key);
+Route.get('/tunescape.com/stream/song', async (req, res) => {
     console.log(hash_key)
     res.render("player.ejs", { hash_key: hash_key })
 })
