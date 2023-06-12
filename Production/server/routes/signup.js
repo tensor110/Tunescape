@@ -2,7 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
-
+const createUser = require("../middlewares/createuser")
 
 Router.get("/tunescape.com/signup", (req, res) => {
     res.render('signup.ejs');
