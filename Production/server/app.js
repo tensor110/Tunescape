@@ -27,7 +27,6 @@ const addSongRoute = require("./routes/addsong")
 const AuthenRoute = require("./routes/authentication")
 const LoginRoute = require("./routes/login")
 const SignupRoute = require("./routes/signup")
-const fetchSong  =  require("./routes/fetchsong")
 //ROUTES
 app.use('/',welcomeRoute)
 app.use('/',addSongRoute)
