@@ -2,25 +2,42 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* border: 2px solid red; */
+    backdrop-filter: blur(0px);
     border-radius: 1rem;
     margin: 0.5rem 0rem;
     padding: 1rem 2rem;
     width: 100%;
 }
-.card-general img{
+#thumbnail-card{
     width: 3rem;
     height: 3rem;
     margin-right: 2rem;
     border-radius: 0.3rem;
 }
 .queue-song-details{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    color: white;
+    display: grid;
+    grid-template-areas: 
+    'song-name views'
+    'artist-name views';
+    grid-gap: 0.5rem 2rem;
+}
+.song-name-card{
+    grid-area: song-name;
+    font-size: 1.2rem;
+}
+.artist-name-card{
+    color: rgb(195, 195, 195);
+    grid-area: artist-name;
+    font-size: 0.8rem;
+}
+.song-views{
+    grid-area: views;
+    justify-self: center;
+    align-self: center;
 }
 .song-views img{
     width: 1rem;
     height: 1rem;
+    margin-right: 0.5rem;
 }

@@ -63,11 +63,20 @@ app.get('/stream', (req, res) => {
   res.render('stream');
   
 });
+app.get('/login', (req, res) => {
+
+  res.render('login');
+  
+});
 
 
 app.get('/dashboard', (req, res) => {
   
     res.render('dashboard');
+  });
+app.get('/search', (req, res) => {
+  
+    res.render('search');
   });
 
 app.use((req, res, next) => {

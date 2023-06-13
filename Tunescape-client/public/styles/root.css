@@ -44,17 +44,16 @@
 
 ::-webkit-scrollbar-thumb {
   background: white; /* Color of the thumb */
-  border-radius: 4px;
-   /* Rounded corners of the thumb */
+  border-radius: 2px;
+  /* Rounded corners of the thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color5);
-   /* Color of the thumb on hover */
+  /* Color of the thumb on hover */
 }
 
 /* Customize the appearance of the track */
 ::-webkit-scrollbar-track {
   background: transparent;
-  /* Color of the track */
 }

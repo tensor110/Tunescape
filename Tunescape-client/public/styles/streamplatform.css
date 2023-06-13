@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-evenly;
     height: 100vh;
-    background: linear-gradient(var(--color1) 20%, var(--color2) 50%);
+    /* background: linear-gradient(var(--color4), var(--color5)); */
+    background: linear-gradient(#ff0084, #33001b);
 }
 .stream-boxes{
     display: grid; 
@@ -52,15 +53,20 @@
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 1rem 0rem;
+    justify-content: space-between;
+    padding: 1.5rem 0rem;
 }
 .buttons{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     padding-bottom: 0.5rem;
 }
 .buttons img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+#play, #pause{
     width: 2rem;
     height: 2rem;
 }

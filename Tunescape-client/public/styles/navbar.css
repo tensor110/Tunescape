@@ -19,7 +19,7 @@
     font-weight: 300;
     font-size: 1.6rem;
     color: white;
-
+    text-decoration: none;
 }
 #search{
     border-radius: 50rem;
@@ -53,6 +53,7 @@ textarea::placeholder {
     border-bottom: 1px solid white;
     color: white;
     font-size: 1rem;
+    text-decoration: none;
 }
 #signup{
     margin-right: 0;

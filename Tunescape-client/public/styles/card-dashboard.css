@@ -1,7 +1,6 @@
 .card-dashboard{
     position: relative;
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
     height: 4rem;
     padding: 0.5rem 2rem;
@@ -10,18 +9,13 @@
 .card-dashboard::before {
     content: "";
     position: sticky;
-    top: 4rem; /* Adjust as needed */
+    top: 4rem;
     z-index: -1;
-    background-color: rgb(54, 46, 119); /* Set the background color to match the container */
-    /* Additional styling for the pseudo-element */
+    background-color: rgb(54, 46, 119);
   }
 .dashboard-thumbnail, .dashboard-song-buttons img{
     width: 3rem;
     height: 3rem;
-}
-.dashboard-song-buttons img{
-    width: 2rem;
-    height: 2rem;
 }
 .dashboard-thumbnail-container{
     width: 50%;
@@ -30,7 +24,6 @@
 .dashboard-song-details{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     margin-left: 1rem;
     line-height: 1.5rem;
@@ -39,6 +32,10 @@
     width: 50%;
     display: flex;
     justify-content: space-evenly;
+}
+.dashboard-song-buttons img{
+    width: 1.2rem;
+    height: 1.2rem;
 }
 .play-number{
     display: flex;

@@ -2,12 +2,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* height: 100vh; */
     background: linear-gradient(var(--color2) 20%, var(--color3) 50%);
 }
 .dashboard-content{
     display: grid; 
-    /* grid-auto-columns: 1fr;  */
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1.4fr 0.6fr; 
     gap: 10px 10px; 
@@ -17,7 +15,6 @@
     "upload-cards upload-cards"; 
     margin-top: 8rem;
     margin-left: 20%;
-    /* padding-top: 2rem; */
     width: 60%;
   }
   .uploads-number { 
@@ -32,6 +29,10 @@
     height: 20rem;
     width: 25rem;
     border: 2px solid var(--color6);
+}
+.uploads-data span{
+    display: block;
+    margin: 5px 0;
 }
 .upload-img{ 
     margin-left: 1.5rem;
@@ -52,6 +53,10 @@
     border-radius: 2rem;
     height: 20rem;
     width: 25rem;
+}
+.plays-data span{
+    display: block;
+    margin: 5px 0;
 }
 .plays-img{ 
     margin-left: 1.5rem;
@@ -83,6 +88,21 @@
     border-radius: 2rem;
     overflow: auto;
 }
+.customised-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+.customised-scrollbar::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 4px;
+  }
+.customised-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color5);
+  }
+.customised-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 20px 0;
+  }
 .dashboard-uploads{
     position: sticky;
     display: flex;

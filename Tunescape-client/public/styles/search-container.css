@@ -6,7 +6,6 @@
 .search-result{
     border: 2px solid green;
     border-radius: 3rem;
-    height: 25rem;
     overflow: auto;
 }
 .search-result>span{
