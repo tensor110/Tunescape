@@ -25,6 +25,7 @@ Route.post('/getsong', async (req, res) => {
 })
 
 
+
 Route.get('/tunescape.com/stream/song', async (req, res) => {
     res.render("player.ejs", { hash_key: cacheHashMusicLink.pop() ,hash_img: cacheHashMusicThumbnail.pop()})
 })

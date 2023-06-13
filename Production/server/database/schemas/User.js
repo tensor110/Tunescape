@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
         minLength: 8
     },
     password: { type: String, minLength:8, required: true },
+    
     age: Number,
     email: {
         type: String,
@@ -29,5 +30,7 @@ const userSchema = new mongoose.Schema({
     },
     isAdmin: Boolean
 })
+
+
 
 module.exports = mongoose.model("User", userSchema);

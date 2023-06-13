@@ -12,7 +12,7 @@ async function createUser(name, age, pass, mail, hash) {
             username: name,
             age: age,
             email: mail,
-            password: md5(pass),
+            password: await md5(pass),
             ProfileHash: hash
         })
 

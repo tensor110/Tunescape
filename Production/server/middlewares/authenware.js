@@ -1,10 +1,11 @@
 const { findUser } = require("../database/controller/user/user");
 const timer = require("./timer")
-const md5 = require("md5");
+const md5 = require("md5")
+
 
 async function authenware(req,res,next){
     const username = req.body.username;
-    const password = md5(req.body.password);
+    const password = await md5( req.body.password);
 
     let foundUser = []
     let result = await findUser(foundUser,username,password).then(()=>{
