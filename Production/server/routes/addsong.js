@@ -1,3 +1,4 @@
+const path = require("path")
 const express= require("express");
 const Route = express.Router();
 const multer = require('multer')
@@ -5,8 +6,12 @@ const upload = multer({ dest: 'uploads/' })
 let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('../middlewares/AMAZONS3');
 let {ADD_MUSIC_TO_MONGO, SEARCH_MUSIC_IN_MONGO,UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO} = require("../database/controller/music/music");
 
+const  { exec } = require( "child_process");
+const {promisify} = require("util")
+const executeCommand = promisify(exec);
+
 Route.get('/tunescape.com/creatorspace', (req, res) => {
-    res.render('addPage.ejs');
+  res.render('addPage.ejs');
   })
 
 let cacheSongName = []
@@ -30,7 +35,12 @@ Route.post("/add/thumbnail",upload.single("song_thumbnail"),async (req,res)=>{
   // console.log(cacheSongName.pop())
   const result = await UploadPicturesToS3(req.file);
 console.log(result.Key)
-  await UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO(cacheSongName.pop(),result.Key);
+await UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO(cacheSongName.pop(),result.Key);
+
+
+ const shellScriptPath = path.join(__dirname, '..','shell-scripts', 'clean-uploads-dir.sh');
+ console.log(shellScriptPath)
+ await executeCommand(`sh ${shellScriptPath}`)
 
   res.redirect('/confirmation/song-uploaded');
 })

@@ -18,6 +18,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", "Server-Frontend")
+
+
+
+
+
+
 let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('./middlewares/AMAZONS3');
 
 let {createUser,findUser} = require("./database/controller/user/user.js")
