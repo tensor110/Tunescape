@@ -8,14 +8,13 @@ Route.get("/buffer-stream-to-fetch-song", async (req, res) => {
     try {
       await CREATE_BUFFER().then((data) => {
         let jsonData = JSON.parse(data);
-
         jsonData= shuffleArray(jsonData)
-        while(jsonData.length>1){
+
+        while(jsonData.length>20){
             jsonData.pop()
         }
         res.send(jsonData)
       });
-
     } catch (error) {
       console.error("Error:", error);
       res.status(500).json({ error: "Internal Server Error" });
