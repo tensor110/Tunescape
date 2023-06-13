@@ -4,7 +4,6 @@ const Music = require('../../schemas/Music');
 
 mongoose.connect(url).then(() => { console.log('connect') })
 
-
 async function ADD_MUSIC_TO_MONGO(title,artist,songhash) {
     const music = new Music({
         Title: title,

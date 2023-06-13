@@ -8,6 +8,7 @@
 
 const express = require('express');
 const app = express();
+const encrypt = require("mongoose-encryption")
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const ejs = require('ejs');

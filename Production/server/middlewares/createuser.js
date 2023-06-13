@@ -1,8 +1,9 @@
-async function userCreator(req, res, next) {
 const {UploadPicturesToS3}  = require('./AMAZONS3')
+
+async function userCreator(req, res, next) {
     const username = req.body.username;
     const password = req.body.password;
-    const email = req.body.username;
+    const email = req.body.email;
     const telephone = req.body.telephone;
     const age = req.body.age;
     const file = req.file
