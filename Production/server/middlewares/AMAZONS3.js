@@ -5,12 +5,6 @@ require('dotenv').config();//TO PROTECT KEYS
 
 const fs=require('fs');
 
-
-// const bucketName='musicbucket-ts';
-// const region =`ap-south-1`;
-// const accessKeyId='AKIA2QMHNITH6GZ7UUDR';
-// const secretAccessKey='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';
-
 const bucketName=process.env.AWS_BUCKET_NAME;
 const region =process.env.AWS_BUCKET_REGION;
 const accessKeyId=process.env.AWS_ACCESS_KEY_ID;

@@ -6,10 +6,10 @@ require('dotenv').config();//TO PROTECT KEYS
 const fs=require('fs');
 
 
-const bucketName='musicbucket-ts';
-const region ='ap-south-1';
-const accessKeyId='AKIA2QMHNITH6GZ7UUDR';
-const secretAccessKey='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';
+const bucketName=ABANDONED;
+const region =ABANDONED;
+const accessKeyId=ABANDONED;
+const secretAccessKey=ABANDONED;
 
 console.log("bucket name = "+bucketName)
 const s3= new S3({
