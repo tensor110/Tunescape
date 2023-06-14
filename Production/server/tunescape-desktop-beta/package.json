@@ -1,0 +1,16 @@
+{
+  "name": "tunescape-desktop-beta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron-for-desktop.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^25.1.0"
+  }
+}
+
