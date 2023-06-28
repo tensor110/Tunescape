@@ -38,9 +38,9 @@ console.log(result.Key)
 await UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO(cacheSongName.pop(),result.Key);
 
 
- const shellScriptPath = path.join(__dirname, '..','shell-scripts', 'clean-uploads-dir.sh');
- console.log(shellScriptPath)
- await executeCommand(`sh ${shellScriptPath}`)
+//  const shellScriptPath = path.join(__dirname, '..','shell-scripts', 'clean-uploads-dir.sh');
+//  console.log(shellScriptPath)
+//  await executeCommand(`sh ${shellScriptPath}`)
 
   res.redirect('/confirmation/song-uploaded');
 })
