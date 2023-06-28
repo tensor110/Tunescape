@@ -8,12 +8,6 @@ app.use(express.static('public'));
 
 
 
-
-
-
-
-
-
 // const songList = [{
 //   title: "As it was",
 //   artist: "Harry Styles",
