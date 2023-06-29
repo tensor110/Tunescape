@@ -4,7 +4,7 @@ const Router = express.Router();
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const {createUser} = require("../database/controller/user/user")
-let { uploadMusicToS3, downloadfromS3 ,UploadPicturesToS3} = require('../middlewares/AMAZONS3');
+let {UploadPicturesToS3} = require('../middlewares/AMAZONS3');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 Router.get("/tunescape.com/signup", (req, res) => {

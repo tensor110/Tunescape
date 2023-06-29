@@ -1,5 +1,4 @@
 const S3 =require('aws-sdk/clients/s3');//IMPORTING THE AWS-SDK , WHERE WE CAN USE S3 FILES
-const axios =require('axios')
 require('dotenv').config();//TO PROTECT KEYS
 
 

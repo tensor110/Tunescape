@@ -1,7 +1,6 @@
 const express = require("express");
 const Route = express.Router();
-let {createUser,findUser} = require("../database/controller/user/user")
-let {ADD_MUSIC_TO_MONGO,SEARCH_MUSIC_THUMBNAIL_IN_MONGO,UPDATE_PREV_MUSICS_THUMBNAIL_HASH_IN_MONGO,SEARCH_MUSIC_IN_MONGO} = require("../database/controller/music/music.js")
+let {SEARCH_MUSIC_THUMBNAIL_IN_MONGO,SEARCH_MUSIC_IN_MONGO} = require("../database/controller/music/music.js")
 
 
 Route.get('/tunescape.com/stream', (req, res) => {
