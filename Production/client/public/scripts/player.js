@@ -7,14 +7,13 @@ let songList= []
 let currentIndex=0;
 async function getSongList (){
 
-  let arr = await fetch('http://localhost:6969/buffer-stream-to-fetch-song');
-  console.log(arr)
+  songList = await fetch('http://localhost:6969/buffer-stream-to-fetch-song');
   // console.log(songList)
   // song.src=`https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
 }
 
 getSongList();
-
+console.log(songList)
 
 
 
