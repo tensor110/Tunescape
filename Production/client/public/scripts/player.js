@@ -3,23 +3,35 @@ const progressBar = document.getElementById('seeker-bar');
 const volumeBar = document.getElementById('volume-bar');
 const songName = document.querySelector('.song-name')
 const artistName = document.querySelector('.artist-name')
-let songList= []
-let currentIndex=0;
-async function getSongList (){
+let songList = []
+let currentIndex = 0;
 
-  songList = await fetch('http://localhost:6969/buffer-stream-to-fetch-song');
-  // console.log(songList)
-  // song.src=`https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+async function getSongList(){
+
+  await fetch('http://localhost:6969/buffer-stream-to-fetch-song')
+    .then(res => {
+      return res.json()
+    })
+    .then(data=>{
+      console.log(data)
+      songList= data;
+      song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    });
 }
 
+
 getSongList();
-console.log(songList)
+// song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
 
 
 
 
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   progressBar.value = 0;
 });
 
@@ -72,34 +84,34 @@ volumeBar.addEventListener('input', () => {
 })
 
 function playNext() {
-  
+
   if (currentIndex === (songList.length - 1)) {
     currentIndex = 0;
   }
   else {
     currentIndex++;
   }
-  
-  song.src=`https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+
+  song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
   song.play();
 
 }
 
 function playPrevious() {
-  
+
   if (song.currentTime < 2) {
 
-      if (currentIndex == 0) {
-          currentIndex = songList.length - 1;
-      }
-      else {
-          currentIndex--;
-      }
-      song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
-      song.play();
+    if (currentIndex == 0) {
+      currentIndex = songList.length - 1;
+    }
+    else {
+      currentIndex--;
+    }
+    song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+    song.play();
   }
   else {
-      song.currentTime = 0;
+    song.currentTime = 0;
   }
 }
 
