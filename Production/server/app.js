@@ -1,5 +1,7 @@
 const express = require('express');
+const cors= require('cors');
 const app = express();
+app.use(cors());
 const multer = require('multer')
 app.use(express.static(__dirname + 'Server-Frontend/public'));
 const PORT = 6969;
