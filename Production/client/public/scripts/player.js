@@ -1,3 +1,7 @@
+
+
+
+const queue= document.getElementById('buffer-queue')
 const song = document.getElementById('song');
 const progressBar = document.getElementById('seeker-bar');
 const volumeBar = document.getElementById('volume-bar');
@@ -13,19 +17,23 @@ async function getSongList(){
       return res.json()
     })
     .then(data=>{
-      console.log(data)
       songList= data;
       song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
+      songList.forEach(song => {
+        let card= createCardElement(song);
+        console.log("card")
+        queue.appendChild(card);
+
+      })
     })
     .catch(error => {
-      // Handle any errors that occurred during the request
       console.error(error);
     });
 }
 
 
 getSongList();
-// song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
+
 
 
 
@@ -117,3 +125,50 @@ function playPrevious() {
 
 
 
+function playSong()
+
+
+
+function createCardElement(song) {
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('card-general', 'glass-morph');
+
+  const thumbnail = document.createElement('img');
+  thumbnail.src = `https://d1uzpajnrcv6ws.cloudfront.net/${song.ThumbnailHash}`;
+  thumbnail.alt = '.\client\public\assets\alt-cover.png';
+  thumbnail.id = 'thumbnail-card';
+
+  const detailsDiv = document.createElement('div');
+  detailsDiv.classList.add('queue-song-details');
+
+  const songName = document.createElement('span');
+  songName.classList.add('song-name-card');
+  songName.textContent = song.Title;
+
+  const artistName = document.createElement('span');
+  artistName.classList.add('artist-name-card');
+  artistName.textContent = song.Artist;
+
+  const songViews = document.createElement('span');
+  songViews.classList.add('song-views');
+
+  const playImg = document.createElement('img');
+  playImg.src = '../assets';
+  playImg.alt = '';
+  playImg.classList.add('play');
+
+  const playsCount = document.createElement('span');
+  playsCount.textContent = song.plays;
+
+  songViews.appendChild(playImg);
+  songViews.appendChild(playsCount);
+
+  detailsDiv.appendChild(songName);
+  detailsDiv.appendChild(artistName);
+  detailsDiv.appendChild(songViews);
+
+  cardDiv.appendChild(thumbnail);
+  cardDiv.appendChild(detailsDiv);
+
+  return cardDiv;
+}
