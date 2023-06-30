@@ -36,9 +36,6 @@ getSongList();
 
 
 
-
-
-
 window.addEventListener('load', function () {
   progressBar.value = 0;
 });
