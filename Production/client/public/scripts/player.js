@@ -28,9 +28,6 @@ getSongList();
 // song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
 
 
-
-
-
 window.addEventListener('load', function () {
   progressBar.value = 0;
 });

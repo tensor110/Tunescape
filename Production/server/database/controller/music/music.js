@@ -1,5 +1,7 @@
+const env = require('dotenv');
+env.config();
 const mongoose = require('mongoose');
-const url = 'mongodb://127.0.0.1:27017/TunescapeDB';
+const url = process.env.MONGODB_URI;
 const Music = require('../../schemas/Music');
 
 mongoose.connect(url).then(() => { console.log(' music connect') })
