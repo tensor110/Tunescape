@@ -12,7 +12,7 @@ const Music = new mongoose.Schema({
     },
     Artist: {
         type: String,
-        minLength: 5
+        minLength: 2
     },
     createdAt: {
         type: Date,

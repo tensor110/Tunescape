@@ -121,11 +121,6 @@ function playPrevious() {
 }
 
 
-
-function playSong()
-
-
-
 function createCardElement(song) {
   const cardDiv = document.createElement('div');
   cardDiv.classList.add('card-general', 'glass-morph');
