@@ -1,7 +1,7 @@
 const env = require('dotenv');
 env.config();
 const mongoose = require('mongoose');
-const url = process.env.MONGODB_URI;
+const url =`mongodb+srv://${process.env.MONGODB_URI_USERNAME}:${process.env.MONGODB_URI_PASSWORD}@musicdb.onmdkyc.mongodb.net/?retryWrites=true&w=majority`;
 const Music = require('../../schemas/Music');
 
 mongoose.connect(url).then(() => { console.log(' music connect') })
