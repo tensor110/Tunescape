@@ -28,7 +28,8 @@ const Music = new mongoose.Schema({
         type: String,
         required:true
     },
-    Plays: Number
+    Plays: Number,
+
 })
 
 module.exports = mongoose.model("Music",Music);

@@ -17,8 +17,9 @@ async function authenware(req,res,next){
         }
     })
     console.log("result is " + result);
-
-    result? timer(res) : res.end("Not An User");
+    res.locals.isAuthenticated = result;
+    console.log(`res.locals.isAuthenticated in authenware = ${res.locals.isAuthenticated}`)
+    result?res.redirect(`/tunescape.com/stream/${password}`): res.redirect("/tunescape.com/signup");
 }
 
 module.exports = authenware
