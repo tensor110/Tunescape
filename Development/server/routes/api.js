@@ -8,10 +8,10 @@ Route.get("/buffer-stream-to-fetch-song", async (req, res) => {
       await CREATE_BUFFER().then((data) => {
         let jsonData = JSON.parse(data);
         jsonData= shuffleArray(jsonData)
-
-        while(jsonData.length>20){
-            jsonData.pop()
-        }
+        // @mogulcoder26 COMMENTED THESE LINES FOR DEV UPLOAD TESTING
+        // while(jsonData.length>20){
+        //     jsonData.pop()
+        // }
         res.send(jsonData)
       });
     } catch (error) {

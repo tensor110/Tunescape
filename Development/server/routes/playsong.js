@@ -3,8 +3,15 @@ const Route = express.Router();
 let {SEARCH_MUSIC_THUMBNAIL_IN_MONGO,SEARCH_MUSIC_IN_MONGO} = require("../database/controller/music/music.js")
 
 
-Route.get('/tunescape.com/stream', (req, res) => {
-    res.render('song-fetch.ejs')
+Route.get('/tunescape.com/stream/:id', (req, res) => {
+    console.log(`res.locals.isAuthenticated = ${res.locals.isAuthenticated}`);
+    console.log(`id = ${req.params.id}`);
+    if(req.params.id){
+        res.render('song-fetch.ejs')
+    }
+    else{
+    res.redirect('/tunescape.com/auth')
+    }
 })
 
 let cacheHashMusicLink = []

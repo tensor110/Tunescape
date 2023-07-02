@@ -12,7 +12,7 @@ const Music = new mongoose.Schema({
     },
     Artist: {
         type: String,
-        minLength: 5
+        minLength: 2
     },
     createdAt: {
         type: Date,
@@ -28,7 +28,8 @@ const Music = new mongoose.Schema({
         type: String,
         required:true
     },
-    Plays: Number
+    Plays: Number,
+
 })
 
 module.exports = mongoose.model("Music",Music);

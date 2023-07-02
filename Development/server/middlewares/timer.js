@@ -1,7 +1,11 @@
-function timer(res){
-    setTimeout(()=>{
-      res.redirect('/tunescape.com/stream');
-    },2000)
+// DEPRECATED
+
+
+function timer(res) {
+  
+  res.locals.isAuthenticated = true;
+
+  res.redirect('/tunescape.com/stream');
 }
 
 module.exports = timer
