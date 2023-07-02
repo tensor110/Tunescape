@@ -1,3 +1,10 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family:  fantasy; */
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+
 .stream{
     display: flex;
     justify-content: space-evenly;
