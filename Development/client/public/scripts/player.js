@@ -1,12 +1,14 @@
 
 
-
+const songTitle= document.getElementById('title');
+const artistName= document.getElementById('artist-name');
+const songThumbnail= document.getElementById('thumbnail')
 const queue= document.getElementById('buffer-queue')
 const song = document.getElementById('song');
 const progressBar = document.getElementById('seeker-bar');
 const volumeBar = document.getElementById('volume-bar');
-const songName = document.querySelector('.song-name')
-const artistName = document.querySelector('.artist-name')
+
+
 let songList = []
 let currentIndex = 0;
 
@@ -18,12 +20,12 @@ async function getSongList(){
     })
     .then(data=>{
       songList= data;
-      song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
+      playSong();
+      // song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`
       songList.forEach(song => {
         let card= createCardElement(song);
-        console.log("card")
         queue.appendChild(card);
-
+        
       })
     })
     .catch(error => {
@@ -35,10 +37,9 @@ async function getSongList(){
 getSongList();
 
 
-
-window.addEventListener('load', function () {
-  progressBar.value = 0;
-});
+window.addEventListener('load',()=>{
+  progressBar.value=0;
+})
 
 song.addEventListener('ended', () => {
   playNext();
@@ -46,13 +47,12 @@ song.addEventListener('ended', () => {
 
 
 // Updates the value of the progress bar
+
 song.addEventListener('timeupdate', () => {
   const currentTime = song.currentTime;
   const duration = song.duration;
   const progress = parseFloat(currentTime / duration) * 100;
-
-  progressBar.value = progress;
-
+  progressBar.value = progress || 0;
 });
 
 // Update music playback position when progress bar is changed
@@ -96,9 +96,9 @@ function playNext() {
   else {
     currentIndex++;
   }
-
-  song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
-  song.play();
+  playSong();
+  // song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+  // song.play();
 
 }
 
@@ -112,8 +112,10 @@ function playPrevious() {
     else {
       currentIndex--;
     }
-    song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
-    song.play();
+    // song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+    // song.play();
+
+    playSong();
   }
   else {
     song.currentTime = 0;
@@ -163,4 +165,13 @@ function createCardElement(song) {
   cardDiv.appendChild(detailsDiv);
 
   return cardDiv;
+}
+
+
+function playSong(){
+  song.src = `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].SongHash}`;
+  songThumbnail.src= `https://d1uzpajnrcv6ws.cloudfront.net/${songList[currentIndex].ThumbnailHash}`;
+  songTitle.innerText= songList[currentIndex].Title;
+  artistName.innerText= songList[currentIndex].Artist;
+  song.play(); 
 }
