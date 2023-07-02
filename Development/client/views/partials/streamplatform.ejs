@@ -1,0 +1,33 @@
+<div class="stream-container">
+    <div class="stream-boxes">
+        <div class="song-info glass-morph">
+            <img src="/assets/alt-cover.png" alt="" id="thumbnail">
+            
+            <span class="song-name"></span>
+            <span class="artist-name"></span>
+        </div>
+        <div class="queue glass-morph customised-scrollbar" id="buffer-queue">
+            
+           
+            
+
+        </div>
+        <div class="player glass-morph">
+             
+            <audio  src="" id="song"></audio>
+            <div class="buttons">
+                <input type="range" name="" id="volume-bar" value="100">
+                <img src="/assets/icons/previous-track-white.png" onclick="playPrevious()" alt="" id="previous">
+                <img src="/assets/icons/pause-white.png" alt="" id="pause" style="display : none;" onclick="playPause(event)">
+                <img src="/assets/icons/play-white.png" alt="" id="play" onclick="playPause(event)">
+                <img src="/assets/icons/next-track-white.png" onclick="playNext()" alt="" id="next">
+                <img src="/assets/icons/randomize-white.png" alt="" id="randomise">
+                <img src="/assets/icons/repeat-button-white.png" alt="" id="repeat">
+            </div>
+            <div class="seeker">
+                <input type="range" name="" id="seeker-bar" min="0" max="100" value="0" step="0.1">
+            </div>
+        </div>
+    </div>
+</div>
+

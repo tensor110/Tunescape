@@ -1,0 +1,81 @@
+.stream-container{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+    /* background: linear-gradient(var(--color4), var(--color5)); */
+    background: linear-gradient(#ff0084, #33001b);
+}
+.stream-boxes{
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 10px 15px; 
+    grid-template-areas: 
+    "song-info queue"
+    "player player";
+    margin-top: 6rem;
+    padding-top: 2rem;
+}
+.song-info{
+    grid-area: song-info;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0rem 4rem;
+    border-radius: 2rem;
+    height: 20rem;
+    width: 25rem;
+}
+.song-info img{
+    height: 10rem;
+    width: 12rem;
+}
+.song-name, .artist-name{
+    margin: 0.7rem 0rem 0.1rem 0rem;
+}
+.queue{
+    grid-area: queue;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    height: 20rem;
+    width: 25rem;
+    overflow: auto;
+    backdrop-filter: blur(0px);
+}
+.player{
+    grid-area: player;
+    height: 7rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 0rem;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+.buttons img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+#play, #pause{
+    width: 2rem;
+    height: 2rem;
+}
+.seeker{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+#seeker-bar{
+    width: 45rem;
+}
+

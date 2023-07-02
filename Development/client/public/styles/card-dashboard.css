@@ -1,0 +1,47 @@
+.card-dashboard{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0rem;
+}
+.card-dashboard::before {
+    content: "";
+    position: sticky;
+    top: 4rem;
+    z-index: -1;
+    background-color: rgb(54, 46, 119);
+  }
+.dashboard-thumbnail, .dashboard-song-buttons img{
+    width: 3rem;
+    height: 3rem;
+}
+.dashboard-thumbnail-container{
+    width: 50%;
+    display: flex;
+}
+.dashboard-song-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+    line-height: 1.5rem;
+}
+.dashboard-song-buttons{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.dashboard-song-buttons img{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.play-number{
+    display: flex;
+    align-items: center;
+    padding-right: 0.3rem;
+}
+.play-number img{
+    margin-left: 0.7rem;
+}
