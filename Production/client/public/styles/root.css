@@ -2,8 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #000000;
 }
+
+
+body{
+  background-color: black;
+}
+
 :root{
   --white: white;
   --black: black;
