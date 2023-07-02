@@ -14,7 +14,7 @@ let currentIndex = 0;
 
 async function getSongList(){
 
-  await fetch('http://localhost:6969/buffer-stream-to-fetch-song')
+  await fetch('https://tunescape-test-backend.onrender.com/buffer-stream-to-fetch-song')
     .then(res => {
       return res.json()
     })
