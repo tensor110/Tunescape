@@ -1,0 +1,25 @@
+</body>
+<script>
+    const toggleBtn = document.querySelector(".toggle_btn");
+    const toggleIcons = document.getElementById("toggle_icon");
+    const dropdownIcons = document.querySelector(".dropdown-icons");
+    toggleIcons.onclick = function () {
+      console.log(7);
+      dropdownIcons.classList.toggle("open");
+      dropdownIcons.classList.contains("open");
+      if(dropdownIcons.classList.contains('open')){
+          toggleIcons.classList.remove("fa");
+          toggleIcons.classList.remove("fa-bars");
+          toggleIcons.classList.add("fa-solid");
+          toggleIcons.classList.add("fa-xmark");
+      }
+      else{
+          toggleIcons.classList.remove("fa-solid");
+          toggleIcons.classList.remove("fa-xmark");
+          toggleIcons.classList.add("fa");
+          toggleIcons.classList.add("fa-bars");
+      }
+    };
+  </script>
+  <script src="scripts/player.js"></script>
+</html>
