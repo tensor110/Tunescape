@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000000;
+}
+:root{
+  --white: white;
+  --black: black;
+  --yellow: yellow;
+}
+.glass-morph {
+  background: rgba(44, 44, 44, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+

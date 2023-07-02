@@ -1,0 +1,70 @@
+.media-player{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+.player{
+    bottom: 0;
+}
+#seeker-bar{
+    position: relative;
+    outline: none;
+    width: 100vw;
+    height: 0.5rem;
+    cursor: pointer;
+    border: navajowhite;
+}
+.media{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 28%;
+    width: 100vw;
+    background-color: gray;
+}
+.media img{
+    margin: 1rem;
+    background-color: grey;
+}
+.media-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 20%;
+}
+.randomize{
+    width: 1rem;
+    height: 1rem;
+}
+.previous{
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.play-pause{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.next{
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.repeat{
+    width: 1rem;
+    height: 1rem;
+}
+.volume{
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+    width: 10%;
+}
+.volume img{
+    width: 1rem;
+    height: 1rem;
+    margin: 1rem 0.2rem ;
+}
+
