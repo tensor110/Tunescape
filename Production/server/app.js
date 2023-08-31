@@ -27,6 +27,6 @@ app.use("/",playsongRoute)
 app.use("/",API)
 
 
-app.listen(PORT || process.env.PORT, () => {
-  console.log(`App live @ :http://localhost:${PORT} `)
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`App live @${PORT} `)
 })

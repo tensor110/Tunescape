@@ -1,5 +1,5 @@
 # Tunescape
-A music streaming platform for authorized users.
+A music streaming platform which utilizes AWS S3 and Cloudfront To make a Community Pool where Users can Push their Loved Songs to Tunescape App.
 
 ```
 .
