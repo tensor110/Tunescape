@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+h1 {
+  color: whitesmoke;
+}
+
+/* div {
+  width: 200px;
+  height: 100px;
+  animation: colors 10s infinite;
+  background-image: linear-gradient(circle, transparent, rgb(5, 5, 5));
+  transition-timing-function: ease-in-out;
+}
+/* 
+@keyframes colors {
+    0%{
+      background-color: black;
+    }
+    10%{
+      background-color: rgb(41, 40, 40);
+    } 
+    20%{
+      background-color: rgb(89, 89, 89);
+    } 
+    30%{
+      background-color: rgb(169, 169, 169);
+    }
+    40%{
+      background-color: rgb(218, 217, 217);
+    }
+     50%{
+      background-color: rgb(171, 170, 170);
+    }
+     60%{
+      background-color: rgb(123, 123, 123);
+    }
+     70%{
+      background-color: rgb(73, 73, 73);
+    }
+    80%{
+      background-color: rgb(46, 46, 46);
+    }
+    90%{
+      background-color: rgb(20, 20, 20);
+    }
+    100%{
+      background-color: black;
+    }
+  } */
+
+  @media (max-width: 701px) {
+    #htmx{
+      display:hidden
+    }
+  }
