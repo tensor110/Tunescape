@@ -17,6 +17,7 @@ app.get('/stream', (req, res) => {
 
   res.render('stream');
   
+  
 });
 app.get('/login', (req, res) => {
 
