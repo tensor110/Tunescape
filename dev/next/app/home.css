@@ -1,0 +1,21 @@
+.music {
+    font-size: 12rem;
+    height: 2.9375rem;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    margin-top: 3.5rem;
+}
+.byyou {
+color: #FFF;
+margin-top: 7rem;
+margin-left: 1rem;
+font-family: Inter;
+font-size: 4.5rem;
+font-style: normal;
+/* font-weight: 500; */
+line-height: 1.5rem; /* 25% */
+}
+
+.main__c {
+    margin-left: 2rem;
+}
