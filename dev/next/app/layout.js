@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { AuthContextProvider } from './context/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Create Next App',
@@ -9,11 +10,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html id='htmx' lang="en" style={{backgroundColor:"black"}}>
-      <body className={inter.className}>
-      <Navbar />
-      {children}
-      </body>
-    </html>
+
+    <html id='htmx' lang="en" style={{ backgroundColor: "black" }}>
+        <body className={inter.className}>
+        <AuthContextProvider>
+          <Navbar />
+          {children}
+      </AuthContextProvider>
+    </body>
+    </html >
   )
 }
