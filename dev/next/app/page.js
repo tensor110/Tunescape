@@ -15,6 +15,10 @@ export default function Home() {
     <div className='textual__data'>
       <p className='para__text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eligendi nihil commodi quia animi cumque vitae nobis distinctio? Eveniet excepturi voluptates sint magnam quidem ex! Obcaecati debitis vel cumque ipsa omnis doloremque aut incidunt.</p>
     </div>
+    <h1>JOIN THE COMMUNITY</h1>
+    <div className='textual__data'>
+      <p className='para__text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eligendi nihil commodi quia animi cumque vitae nobis distinctio? Eveniet excepturi voluptates sint magnam quidem ex! Obcaecati debitis vel cumque ipsa omnis doloremque aut incidunt.</p>
+    </div>
     </div>
   </div>
   )
