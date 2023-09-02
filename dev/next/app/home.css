@@ -47,6 +47,7 @@
 .textual__data {
     width: 70%;
     margin: auto;
+    margin-bottom: 6rem;
 }
 
 .user__welc {
@@ -63,3 +64,42 @@
     font-size: large;
     transition: 0.7s;
 }
+
+@media screen and (max-width:756px) {
+    .main__header > h1 {
+        font-size:2rem;
+        text-align: center;
+        line-height: 1.5;
+    }    
+
+    .music {
+        font-size: 5rem;
+        height: 2.9375rem;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+        margin-top: 3.5rem;
+    }
+
+    .byyou {
+        color: #FFF;
+        margin-left: 1rem;
+        margin-top: 0;
+        font-family: Inter;
+        font-size: 2rem;
+        font-style: normal;
+        line-height: 1.5rem;
+    }
+
+    .main__header{
+        margin-top: 12rem;
+    }
+    
+    .main__c{
+        text-align: center;
+    }
+    .textual__data{
+        margin-bottom: 2rem;
+    }
+}
+
+

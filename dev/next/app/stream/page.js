@@ -14,7 +14,7 @@ const page = () => {
           <path d="M1 0V450" stroke="white" />
         </svg>
         <div style={{marginBottom:"2rem"}}>
-        <StreamCard/>
+        <StreamCard Song="Count Me Out" Artist="Kendrick Lamar" time="5:06"/>
         <StreamCard/>
         <StreamCard/>
         <StreamCard/>
