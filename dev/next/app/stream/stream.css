@@ -1,0 +1,24 @@
+.main__image {
+    width: 18.75rem;
+    height: 18.75rem;
+    flex-shrink: 0;
+}
+.image__container {
+    margin-left: 8.63rem;
+    margin-top: 4.88rem;
+    margin-bottom: 15.81rem;
+    margin-right: 6rem;
+}
+
+.master__name{
+color: #FFF;
+font-size: 3rem;
+font-style: normal;
+font-weight: 400;
+}
+
+.master__artist {
+color: #FFF;
+font-size: 1rem;
+margin-left: 2px;
+}
