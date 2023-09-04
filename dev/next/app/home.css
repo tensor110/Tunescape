@@ -5,43 +5,102 @@
     margin-left: 0.5rem;
     margin-top: 3.5rem;
 }
+
 .byyou {
-color: #FFF;
-margin-top: 7rem;
-margin-left: 1rem;
-font-family: Inter;
-font-size: 4.5rem;
-font-style: normal;
-/* font-weight: 500; */
-line-height: 1.5rem; /* 25% */
+    color: #FFF;
+    margin-top: 7rem;
+    margin-left: 1rem;
+    font-family: Inter;
+    font-size: 4.5rem;
+    font-style: normal;
+    /* font-weight: 500; */
+    line-height: 1.5rem;
+    /* 25% */
 }
 
 .main__c {
     margin-left: 2rem;
 }
 
-.main__header{
+.main__header {
     text-align: center;
 font-family: Inter;
 margin-top: 19rem;
 }
 
-.main__header >h1{
-color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 6.25rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1.5rem; /* 24% */
+.main__header>h1 {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 6.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    /* 24% */
 }
 
-.para__text{
+.para__text {
     color: #fff;
     margin-top: 4rem;
     font-weight: 400;
 }
-.textual__data{
+
+.textual__data {
     width: 70%;
     margin: auto;
+    margin-bottom: 6rem;
 }
+
+.user__welc {
+    color: white;
+}
+
+.user__text {
+    color: red;
+    transition: 0.7s;
+}
+
+.user__text:hover {
+    color: red;
+    font-size: large;
+    transition: 0.7s;
+}
+
+@media screen and (max-width:756px) {
+    .main__header > h1 {
+        font-size:2rem;
+        text-align: center;
+        line-height: 1.5;
+    }    
+
+    .music {
+        font-size: 5rem;
+        height: 2.9375rem;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
+        margin-top: 3.5rem;
+    }
+
+    .byyou {
+        color: #FFF;
+        margin-left: 1rem;
+        margin-top: 0;
+        font-family: Inter;
+        font-size: 2rem;
+        font-style: normal;
+        line-height: 1.5rem;
+    }
+
+    .main__header{
+        margin-top: 12rem;
+    }
+    
+    .main__c{
+        text-align: center;
+    }
+    .textual__data{
+        margin-bottom: 2rem;
+    }
+}
+
+
