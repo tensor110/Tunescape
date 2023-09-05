@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
 
-    <html id='htmx' lang="en" style={{ backgroundColor: "black" }}>
+    <html className='scrollable-element' id='htmx' lang="en" style={{ backgroundColor: "black" , scrollbarColor:"red yellow"}}>
         <body className={inter.className}>
         <AuthContextProvider>
           <Navbar />

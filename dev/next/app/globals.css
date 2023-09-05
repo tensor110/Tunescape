@@ -73,12 +73,16 @@ h1 {
     }
   } */
 
-  @media (max-width: 701px) {
+  /* @media (max-width: 701px) {
     #htmx{
       display:hidden
     }
-  }
+  } */
 
 html{
   background-color: black;
+}
+
+.scrollable-element {
+  scrollbar-color: red yellow;
 }
