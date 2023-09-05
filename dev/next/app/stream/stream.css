@@ -1,24 +1,102 @@
+.stream-holder {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#stream-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 3%;
+}
+#stream-left {
+  width: 40%;
+  height: 50%;
+}
+#stream-right {
+  width: 40%;
+}
 .main__image {
-    width: 18.75rem;
-    height: 18.75rem;
-    flex-shrink: 0;
+  width: 18.75rem;
+  height: 18.75rem;
+  flex-shrink: 0;
 }
-.image__container {
-    margin-left: 8.63rem;
-    margin-top: 4.88rem;
-    margin-bottom: 15.81rem;
-    margin-right: 6rem;
-}
-
-.master__name{
-color: #FFF;
-font-size: 3rem;
-font-style: normal;
-font-weight: 400;
+.master__name {
+  color: #fff;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .master__artist {
-color: #FFF;
-font-size: 1rem;
-margin-left: 2px;
+  color: #fff;
+  font-size: 1rem;
+  margin-left: 2px;
+}
+
+.media-player {
+  position: fixed;
+  bottom: 0;
+  background-color: grey;
+}
+
+#seeker-bar {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+}
+
+.media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 28%;
+  width: 100vw;
+  /* background-color: gray; */
+}
+.media img {
+  margin: 1rem;
+}
+.media-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.randomize {
+  width: 1rem;
+  height: 1rem;
+}
+.previous {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.play-pause {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.next {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.repeat {
+  width: 1rem;
+  height: 1rem;
+}
+.volume {
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  width: 10%;
+}
+.volume img {
+  width: 1rem;
+  height: 1rem;
+  margin: 1rem 0.5rem;
 }
