@@ -24,7 +24,8 @@
 
 .main__header {
     text-align: center;
-    margin-top: 19rem;
+font-family: Inter;
+margin-top: 19rem;
 }
 
 .main__header>h1 {
