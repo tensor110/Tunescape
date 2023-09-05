@@ -36,11 +36,16 @@ const Navbar = () => {
           <i class="bx bx-x" id="close-icon"></i>
         </label>
 
-        <nav class="navbar">
-          <Link href="/stream" class="nav-item" style={{ "--i": 2 }}>Stream</Link>
-          <Link href="/dashboard" class="nav-item" style={{ "--i": 0 }}>Dashboard</Link>
-          <Link href="/about/us" class="nav-item" style={{ "--i": 1 }}>About us</Link>
-          {user?(<><Link href="/user/profile"class="nav-item " style={{ "--i": 2 }}>{user?.displayName}</Link><Link onClick={handleSignOut} href="/" class="nav-item user__text" style={{ "--i": 2 }}>Sign Out</Link></>):(<Link onClick={handleSignIn} href="/" class="nav-item" style={{ "--i": 2 }}>Login</Link>)}
+        <nav class="navbar"> <Link href="/stream" class="nav-item" 
+          style={{ "--i": 2 }}>Stream</Link> <Link 
+          href="/dashboard" class="nav-item" style={{ "--i": 0 
+          }}>Dashboard</Link> {user?(<><Link 
+          href="/user/profile"class="nav-item " style={{ "--i": 2 
+          }}>{user?.displayName}</Link><Link 
+          onClick={handleSignOut} href="/" class="nav-item 
+          user__text" style={{ "--i": 2 }}>Sign 
+          Out</Link></>):(<Link onClick={handleSignIn} href="/" 
+          class="nav-item" style={{ "--i": 2 }}>Login</Link>)}
         </nav>
       </header>
       <br />
