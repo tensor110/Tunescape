@@ -10,3 +10,11 @@
     justify-content: center;
     width: 12%;
 }
+#thumbnail{
+    height: 3rem;
+    width: 3rem;
+}
+#editbtn{
+    height: 1rem;
+    width: 1rem;
+}

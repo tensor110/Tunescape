@@ -26,7 +26,7 @@
     font-size: 1.3rem;
 }
 .mid{
-    height: 30%;
+    margin: 3% 0;
     display: flex;
     justify-content: center;
     align-items: center;
