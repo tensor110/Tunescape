@@ -1,22 +1,32 @@
 .main__container {
-width: 35.375rem;
-height: 3.625rem;
-flex-shrink: 0;
-display: flex;
-margin-bottom: 1rem;
-overflow-y: hidden;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: hidden;
+  margin-top: 1rem;
 }
 
-.main__container > h1,h2,h3,h4,h5,h6,p {
-    color: white;
-    font-family: "Poppins";
-    text-align: center;
-    margin: auto;
+.main__container > h2,
+p {
+  color: white;
+  font-family: "Poppins";
+  text-align: center;
+  margin: auto;
 }
 
-.main__container >img {
-width: 3.75rem;
-height: 3.75rem;
-flex-shrink: 0;
-margin-right: 4rem;
+.main__container > img {
+  width: 10%;
+  height: 10%;
+  flex-shrink: 0;
+}
+.songname, .artistname {
+  margin-right: 5rem;
+  white-space: nowrap;
+  width: 20%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: auto;
 }

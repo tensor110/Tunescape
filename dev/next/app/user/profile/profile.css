@@ -14,3 +14,12 @@
     font-size: 4rem;
     font-weight: 500;
 }
+@media screen and (max-width: 740px) {
+    .greet{
+        font-size: 3rem;
+        margin-top: 2.5rem;
+    }
+    .userName{
+        font-size: 2rem;
+    }
+}    

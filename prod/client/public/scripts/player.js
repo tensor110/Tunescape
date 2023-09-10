@@ -1,10 +1,10 @@
 
 
-const songTitle= document.getElementById('song-title');
-const artistName= document.getElementById('artist-name');
-const songThumbnail= document.getElementById('thumbnail-left')
-const queue= document.getElementById('buffer-queue')
-const songMedia = document.getElementById('song');
+const songTitle= document.getElementById('master__name');
+const artistName= document.getElementById('master__artist');
+const songThumbnail= document.getElementById('main-image')
+// const queue= document.getElementById('buffer-queue')
+// const songMedia = document.getElementById('song');
 const progressBar = document.getElementById('seeker-bar');
 const volumeBar = document.getElementById('volume-seeker');
 
