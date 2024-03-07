@@ -1,0 +1,20 @@
+#card-dashboard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 1rem 0;
+}
+#card-dashboard span{
+    display: flex;
+    justify-content: center;
+    width: 12%;
+}
+#thumbnail{
+    height: 3rem;
+    width: 3rem;
+}
+#editbtn{
+    height: 1rem;
+    width: 1rem;
+}

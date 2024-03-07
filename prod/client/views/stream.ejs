@@ -1,0 +1,25 @@
+<%-include('partials/header.ejs')-%>
+<%-include('partials/navbar.ejs')-%>
+
+<div class="stream">
+    <div class="stream-left">
+        <audio  src="" id="song"></audio>
+        <img src="assets/thumbnail.jpg" alt="" id="thumbnail-left">
+        <div class="song-name-stream-left" id="song-title" class="gradient-text"></div>
+        <div class="artist-name-stream-left" id="artist-name"></div>
+    </div>
+    <div class="stream-right queue" id="buffer-queue">
+            
+            <div class="stream-right-song">
+                <img src="assets/thumbnail.jpg" alt="" id="thumbnail-right">
+                <div class="song-name-stream-right">Song Name</div>
+                <div class="artist-name-stream-right">Artist Name
+                </div>
+                <img src="assets/like.png" alt="">
+                <div class="duration">3:56</div>
+            </div>
+    </div>
+</div>
+    
+    <%-include("partials/media.ejs")-%>
+    <%-include("partials/footer.ejs")-%>

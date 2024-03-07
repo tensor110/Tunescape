@@ -1,0 +1,54 @@
+#dashboard{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0;
+}
+.upper{
+    display: flex;
+    justify-content: space-around;
+    height: 30%;
+    width: 80%;
+    border-bottom: 1px solid grey;
+}
+#uploads, #plays{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.uploads-no, .plays-no{
+    color: white;
+    font-size: 5rem;
+}
+.uploads-content, .plays-content{
+    color: grey;
+    font-size: 1.3rem;
+}
+.mid{
+    margin: 3% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#uploadbtn{
+    border: 0.5px solid white;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+.lower{
+    width: 80%;
+}
+.content-bar{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    padding: 1%;
+}
+.content-bar span{
+    display: flex;
+    justify-content: center;
+    width: 12%;
+}
